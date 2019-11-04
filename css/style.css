@@ -1,0 +1,959 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    list-style: none;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+input, textarea{
+    border: solid 1px #cacaca;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+div{
+    font-size: 16px;
+}
+
+figure{
+    width: inherit;
+    height: inherit;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.hidden{
+    display: none;
+}
+
+
+.conteudo{
+    height: inherit;
+    width: 1300px;
+    /* background-color: yellowgreen;    */
+}
+
+.clear{
+    clear: both;
+}
+.bkg-primary{
+    background-color:  #29bb2e;
+    color: #ffffff;
+}
+.txt-red{
+    color: red;
+}
+.txt-white{
+    color: white;
+}
+.txt-size-14{
+    font-size: 14px;
+}
+.txt-size-16 {
+    font-size: 16px;
+}
+.txt-size-18{
+    font-size: 18px;
+}
+.txt-size-20{
+    font-size: 20px;
+}
+.txt-size-22{
+    font-size: 22px;
+}
+.txt-size-28{
+    font-size: 28px;
+}
+.txt-size-36{
+    font-size: 36px;
+}
+.negrito{
+    font-weight: bold;
+}
+.obrigatorio{
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#cabecalho{
+    height: 80px;
+    width: 100%;
+    background-color:  #29bb2e;
+
+    position: fixed;
+    z-index: 1000;
+
+    
+}
+
+
+#logo{
+    height: 80px;
+    width: 200px;
+    /* background-color: aqua; */
+    /* padding-top: 30px;   */
+    float: left;
+    padding: 5px;
+}
+#logo_menu{
+    height: 70px;
+    width: 150px;
+}
+
+
+
+
+
+
+
+#menu{
+    width: 650px;
+    height: inherit;
+    /* background-color: aqua; */
+    margin-left: 0px;
+    float: left;
+    padding-top: 20px;
+
+}
+
+.menu_itens{
+    min-width: 50px;
+    width: auto;
+    height: 40px;
+    /* background-color: #2ca30b; */
+    float: left;
+    text-align: center;
+    margin-left: 10px;
+    padding-top: 11px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #ffffff;
+}
+
+.menu_itens:hover{
+    color: #eded11;
+    /* color: red; */
+    cursor: pointer;
+}
+
+.menu_drop{
+    margin-top: 10px;
+    width: 136px;
+    padding-left: -15px;
+    margin-left: -15px;
+    min-height: 40px;
+    height: auto;
+    /* background-color: #8c8c8c; */
+    background-color: #2ca30b;
+    display: none;
+    padding-left: 5px;
+    color: white;
+    
+
+}
+#menu_drop:hover{
+    background-color: #2ca30b;
+    color: white;
+    box-shadow: 2px 3px black;
+}
+.drop_cor:hover{
+    color: #eded11;
+}
+
+#menu_drop:hover > .menu_drop{
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    color: white;
+    box-shadow: 2px 2px black;
+}
+
+#caixa_login{
+    width: 400px;
+    height: 70px;
+    /* background-color: aqua; */
+    float: right;
+    /* margin-right: 35px; */
+    padding-top: 5px;
+
+}
+
+.login{
+    width: 180px;
+    height: 70px;
+    float: left;
+   /* background-color: blueviolet; */
+   color: #ffffff;
+    
+}
+.login_input{
+    height: 30px;
+    width: 170px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+.ok_input{
+    height: 30px;
+    width: 35px;
+    background-color: #ffffff;
+    border-radius: 5px;
+
+}
+.ok_input:hover{
+    cursor: pointer;
+    background-color: #eded11;
+}
+
+#banner{
+    width: 100%;
+    height: 580px;
+    /* background-color: #2ca30b; */
+    padding-top: 80px;
+    margin-bottom: 50px;
+}
+.redes_sociais_menu{
+    width: 50px;
+    height: 200px;
+    position: absolute;
+    margin-top: 480px;
+    margin-left: 1310px;
+}
+
+.redes_sociais1, .redes_sociais2, .redes_sociais3, .menu_redes_sociais_img{
+    height: 50px;
+    width: 50px;
+}
+.menu_redes_sociais_img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+
+
+
+#conteudo_produtos_home{
+    width: 100%;
+    min-height: 550px;
+    height: auto;
+    /* background-color: darkgoldenrod; */
+}
+
+
+#menu_secundario{
+    width: 150px;
+    min-height: 50px;
+    height: auto;
+    /* background-color: black; */
+    float: left;
+    margin-right: 50px;
+}
+.menu_secundario{
+    width: inherit;
+    height: 32px;
+    /* background-color: #2ca30b; */
+    text-align: center;
+    padding-top: 8px;
+    margin-bottom: 1px;
+    font-size: 16px;
+    border-radius: 4px;
+    
+}
+.menu_secundario:hover{
+    color: #eded11;
+    cursor: pointer;
+}
+
+#conteudo_produtos{
+    width: 1100px;
+    min-height: inherit;
+    height: auto;
+    /* background-color: hotpink; */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    float: left;
+}
+.container_produtos{
+    width: 1100px;
+    min-height: 530px;
+    height: auto;
+    background-color: dimgray;
+    padding: 88px 0px 15px 15px;
+    
+}
+
+.produtos{
+    width: 310px;
+    min-height: 310px;
+    height: auto;
+    background-color: white;
+    border: solid 1px #2ca30b;
+    padding: 10px 10px 1px 10px;
+    float: left;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    border-radius: 4px;
+}
+.produto_img{
+    width: 200px;
+    height: 170px;
+   /* background-color: aqua; */
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+/* --------------------------------------------*/
+/* PAGINA ENTRE EM CONTATO*/
+.txt-black{
+    color: #000000;
+}
+
+#entre_em_contato{
+    width: 100%;
+    min-height: 900px;
+    height: auto;
+    background-color: white;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+.center_conteudo{  
+    text-align: center;
+}
+.h1_contato{
+    margin-left: 200px;
+    padding-top: 100px;
+    margin-bottom: 25px;
+}
+.p_contato{
+    margin-left: 200px;
+    margin-right: 200px;
+    /* color: #ffffff; */
+    /* background-color: darkgoldenrod; */
+    margin-bottom: 50px;
+}
+#formulario_contato{
+    width: 480px;
+    min-height: 50px;
+    height: auto;
+    border: solid 1px black;
+    padding: 10px 40px 10px 40px;
+    box-shadow: 5px 6px black;
+    border-radius: 4px;
+}
+
+
+#container_telefone{
+    width: 100%;
+    height: 65px;
+}
+.telefone{
+    width: 199px;
+    height: inherit;
+    float: left;
+}
+.p_form_telefone{
+    width: 150px;
+    height: 30px;
+    
+}
+.rdo_sexo_masculino{
+    margin-left: 25px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    padding-top: 5px;
+}
+
+
+
+
+.p_form, .select_form{
+    width: 400px;
+    height: 30px;
+/*    background-color: aqua;*/
+    margin-bottom: 5px;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.select_form{
+    width: 300px;
+    height: 30px;
+    padding-top: 2px;
+
+}
+
+#formulario_contato p_form{
+    font-size: 20px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+
+#formulario_contato textarea{
+    width: 400px;
+    height: 200px;
+    resize: none;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.btn_enviar{
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: #29bb2e;
+}
+.btn_enviar:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white; 
+}
+.alinhar{
+    width: 100%;
+    height: 50px;
+    /* background-color: fuchsia; */
+}
+.alinhar input{
+    margin-left: 80px;
+}
+
+
+
+
+
+/* --------------------------------------------*/
+/* NOSSAS LOJAS */
+
+#conteudo_lojas{
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    padding-top: 80px;
+}
+
+
+#conteudo_lojas h1{
+/*    background-color: coral;*/
+    padding-top: 80px;
+    margin-left: 180px;
+    margin-bottom: 10px;
+}
+#conteudo_lojas h2{
+    margin-left: 180px;
+    margin-bottom: 20px;
+}
+
+
+#container_lojas{
+    width: 1000px;
+    min-height: 40px;
+    height: auto;
+    margin-bottom: 50px;
+    background-color: white;
+}
+#lojas_estados{
+    width: inherit;
+    height: 40px;
+    /* background-color: gold; */
+    border: solid 1px black;
+    box-shadow: 4px 2px black;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.txt_estado{
+    width: 150px;
+    height: inherit;
+    padding: 10px 0px 0px 10px;
+/*    margin-right: 100px;*/
+    
+/*    background-color: coral;*/
+    float: left;
+}
+.selecionar_estados{
+    width: 200px;
+    height: inherit;
+    padding: 5px 0px 0px 10px;
+/*    background-color:forestgreen;*/
+    float: left;
+    margin-right: 50px;
+
+}
+.select_estados{
+    min-width: 150px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+
+.resultado_estado{
+    width: 290px;
+    height: inherit;
+    float: left;
+   /* background-color: rosybrown; */
+/*    margin-left: 80px;*/
+    padding: 10px 0px 0px 10px;
+    
+}
+
+
+.lojas, .panel, .panel2, .flip{
+    height: 30px;
+    width: inherit;
+    background-color: #a2a2a2;
+    margin-bottom: 15px;
+    box-shadow: 4px 2px black;
+    border: solid 1px black;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.panel {
+    /* padding: 50px; */
+    width: inherit;
+    /* min-height: 100px; */
+    height: inherit;
+    display: none;
+    background-color: #cacaca;
+    padding: 5px 10px 5px 10px;
+}
+.nome_loja{
+    height: inherit;
+    padding-top: 5px;
+    padding-left: 10px;
+    float: left;
+}
+.icone_loja{
+    height: 25px;
+    width: 25px;
+    float: right;
+    margin-right: 10px;
+    background-color: red;
+    border: solid 1px black;
+    border-radius: 50px;
+    margin-top: 2px;
+}
+.icone_loja:hover{
+    cursor: pointer;
+}
+
+.endereco_loja{
+    width: 50%;
+    height: 80px;
+    float: left;
+}
+
+
+
+
+/* #panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+  } */
+  
+  
+
+
+
+
+
+/* --------------------------------------------*/
+/* PAGINA DE PROMOCOES*/
+
+#banner_promocao{
+    padding-top: 80px;
+    width: 100%;
+    height: 700px;
+    background-image: url(../img/banner_sucos.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+}
+
+#conteudo_promocoes{
+    width: 100%;
+    min-height: 300px;
+    height: auto;
+    /* background-color: aqua; */
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.bkg{
+    width: inherit;
+    height: inherit;
+}
+
+.bkg-img, .bkg-img-scale{
+    width: inherit;
+    height: inherit;
+}
+
+.bkg-img-scale:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.txt_produto, .txt_produto_descricao, .txt_produto_preco{
+    width: 280px;
+    min-height: 20px;
+    height: auto;
+    margin-bottom: 5px;
+/*    background-color: black;*/
+}
+.txt-center{
+    text-align: center;
+}
+.txt-color-primary{
+    color: #29bb2e;
+}
+
+.txt_produto{
+    font-size: 20px;
+}
+
+.txt_produto_descricao{
+    font-size: 16px;
+}
+
+.txt_produto_preco{
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.txt_produto_detalhes{
+    margin-left: auto;
+    width: 90px;
+    height: 25px;
+    padding-top: 3px;
+    padding-left: 7px;
+    background-color: #eded11;
+    border-radius: 5px;
+}
+
+.txt_produto_detalhes:hover{
+    cursor: pointer;
+    color: white;
+    background-color:  #2ca30b;
+}
+
+.desconto_preco{
+    width: auto;
+    height: 20px;
+    margin-right: 15px;
+    color: #8c8c8c;
+}
+
+.riscar_preco{
+    text-decoration: line-through;
+}
+
+
+
+
+.titulo{
+    width: inherit;
+    height: 30px;
+    margin-bottom: 200px;
+    padding-top: 190px;
+    font-size: 64px;
+}
+
+
+
+
+
+/* --------------------------------------------*/
+/* Sobre a empresa */
+#sobre_a_empresa{
+    width: 100%;
+    min-height: 1000px;
+    height: auto;
+    background-image: url(../img/banner_sucos.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* padding-bottom: 100px; */
+}
+
+.opacity{
+    width: inherit;
+    height: inherit;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.center-txt{
+    text-align: center;
+}
+.missao_visao_valore{
+    width: 400px;
+    min-height: 350px;
+    height: auto;
+    background-color: rgba(90, 90, 108, 0.8);
+    margin-left: 30px;
+    float: left;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 100px;
+}
+
+.icone_sobre_empresa{
+    width: 200px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+.p_missao{
+    width: 370px;
+    height: 20px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    /* background-color: yellow; */
+}
+
+.texto_esplicativo{
+    width: 950px;
+    min-height: 100px;
+    height: auto;
+    margin-bottom: 100px;
+}
+
+
+/* --------------------------------------------*/
+/* Produto do mês */
+#produto_do_mes{
+    width: 100%;
+    min-height: 1200px;
+    height: auto;
+    /* background-color: gray; */
+    padding-top: 150px;
+    color: black;
+}
+
+.container_selecao_imagem{
+    width: 100px;
+    height: 400px;
+    /* background-color: saddlebrown; */
+    margin-bottom: 50px;
+    float: left;
+    margin-left: 50px;
+
+}
+.selecao_imagem{
+    width: 90px;
+    height: 90px;
+    /* background-color: salmon; */
+    margin-bottom: 10px;
+    /* border: solid 1px black; */
+}
+
+.imagem_produto{
+    width: 500px;
+    height: 400px;
+    /* background-color: seagreen; */
+    float: left;
+    margin-left: 100px;
+
+}
+.inf_produto_mes{
+    min-width: 400px;
+    width: auto;
+    max-width: 550px;
+    height: 400px;
+    /* background-color: seagreen; */
+    float: left;
+    margin-left: 100px;
+    margin-bottom: 180px;
+
+}
+
+.titulo_produto, .titulo_produto_mes{
+    min-width: 100px;
+    width: auto;
+    height: 30px;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.titulo_produto_mes{
+    margin-bottom: 80px;
+}
+
+#caracteristicas_produto{
+    width: 800px;
+    min-height: 150px;
+    height: auto;
+    /* background-color: darkcyan; */
+    margin-bottom: 150px;
+    margin-left: 80px;
+}
+
+.lista_de_caracteristicas{
+    width: 800px;
+    min-height: 30px;
+    height: auto;
+    font-size: 18px;
+}
+
+#encomendar_produto{
+    width: 250px;
+    height: 40px;
+    background-color: red;
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 4px;
+}
+#encomendar_produto:hover{
+    background-color: #29bb2e;
+    cursor: pointer;
+}
+
+
+/* --------------------------------------------*/
+/* Curiosidades */
+
+#banner_curiosidades{
+    width: 100%;
+    height: 500px;
+    background-image: url(../img/02.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#container_curiosidades{
+    width: 100%;
+    min-height: 500px;
+    height: auto;
+    /* background-color: rgb(1, 93, 129); */
+
+}
+.faixa_curiosidades{
+    width: 100%;
+    min-height: 400px;
+    height: auto;
+    margin-bottom: 50px;
+    padding: 50px;
+    /* background-color: gray; */
+    border-top: solid 1px black;
+}
+
+.img_curiosidades{
+    width: 450px;
+    height: 400px;
+    float: left;
+}
+.conteudo_curiosidades{
+    width: 680px;
+    min-height: 400px;
+    height: auto;
+    margin-left: 50px;
+    /* background-color: salmon; */
+    float: left;
+}
+.txt_titulo{
+    width: inherit;
+    min-height: 30px;
+    height: auto;
+    margin-bottom: 30px;
+}
+.txt_curiosidades{
+    width: inherit;
+    min-height: 30px;
+    height: auto;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+/* --------------------------------------------*/
+/* RODAPE */
+
+footer{
+    width: 100%;
+    height: 80px;
+/*    background-color: #a2a2a2;*/
+    background-color: white;
+    border-top: solid 1px black;
+    
+}
+#container_sistema_interno{
+    width: 150px;
+    height: 50px;
+    padding: 10px 0px 0px 20px;
+    float: left;
+}
+
+#sistema_interno{
+    width: 130px;
+    height: 50px;
+    /* background-color: ; */
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 4px;
+    color: white;
+
+}
+#sistema_interno:hover{
+    box-shadow: 4px 2px black;
+    cursor: pointer;
+}
+
+#container_endereco{
+    width: 900px;
+    height: inherit;
+    /* background-color: brown; */
+    float: left;
+    padding-top: 10px;
+}
+.endereco{
+    width: 500px;
+    height: 50px;
+    /* background-color: aquamarine; */
+    padding-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#icone_download{
+    width: 60px;
+    height: 60px;
+    /* background-color: cadetblue; */
+    float: left;
+    margin-top: 10px;
+}
+
+#download_app{
+    width: 150px;
+    height: 50px;
+    /* background-color: #29bb2e; */
+    float: left;
+    margin-top: 13px;
+    margin-left: 13px;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 4px;
+}
+
+#download_app:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
