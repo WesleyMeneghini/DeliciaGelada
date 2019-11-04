@@ -334,9 +334,40 @@ a{
     background-color: aqua;
 }
 
+/********************************/
+/****** Cadastrar Usuario ******/
 
+#container_usuario{
+    width: inherit;
+    min-height: 500px;
+    height: auto;
+    margin-bottom: 50px;
+    
+}
 
+#cadastro_usuario{
+    width: 800px;
+    min-height: 50px;
+    height: auto;
+    background-color: darkgray;
+    margin-bottom: 50px;
+}
 
+#container_consulta_usuarios{
+    width: 800px;
+    min-height: 50px;
+    height: auto;
+/*    background-color: salmon;*/
+}
+
+#consulta_usuarios{
+    width: inherit;
+    min-height: 0px;
+    height: auto;
+}
+#consulta_usuarios tr td{
+    border: solid 1px black;
+}
 
 
 
