@@ -137,7 +137,9 @@
                         <td><?=$rsNiveis['nome']?></td>
                         <td>
                             <a href="niveis_acesso.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>">
-                                Editar
+                                <div class="icone_tabela center">
+                                    <img src="icones/lapis.png" class="bkg-img"/>
+                                </div>
                             </a>
                         </td>
                         <td>Visualizar</td>

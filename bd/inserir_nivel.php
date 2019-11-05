@@ -12,6 +12,8 @@
         $AdmConteudo = $_POST['txt_adm_conteudo']? 1:0;
         $AdmFaleConosco = $_POST['txt_adm_fale_conosco']? 1:0;
         $AdmUsuarios = $_POST['txt_adm_usuarios']? 1:0;
+
+        $codigoNivel = $_SESSION['codigoNiveis'];
         
         if(strtoupper($_POST['btn_cadastrar']) == "SALVAR"){
 
@@ -25,7 +27,7 @@
                         adm_conteudo=".$AdmConteudo.",
                         adm_faleconosco=".$AdmFaleConosco.",
                         adm_usuarios=".$AdmUsuarios."
-                        where codigo=".$_SESSION['codigoNiveis'].";";
+                        where codigo=".$codigoNivel.";";
                         
         }
         echo($sql);
@@ -38,6 +40,9 @@
         }else{
             echo("<script>alert('Erro ao cadastrar o nível!');</script>");
         }
+
+        // encerar variavel de sessão
+        unset($_SESSION['codigoNiveis']);
         
     }
     

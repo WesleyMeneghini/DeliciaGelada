@@ -14,9 +14,21 @@ body{
     background-attachment: fixed;
 }
 
+h1{
+    margin-bottom: 10px;
+}
+
 a{
     text-decoration: none;
     color: inherit;
+}
+
+input{
+    min-width: 25px;
+    width: auto;
+    height: 25px;
+    border: solid 1px black;
+    margin-bottom: 5px;
 }
 
 .negrito{
@@ -168,6 +180,10 @@ li{
     transform: scale(1.1);
 }
 
+.icone_tabela{
+    width: 20px;
+    height: 20px;
+}
 
 
 
@@ -318,55 +334,83 @@ a{
     width: 1200px;
     min-height: 500px;
     height: auto;
-    background-color: gray;
+    /* background-color: gray; */
     padding-top: 50px;
 }
 #usuarios{
+    padding-top: 50px;
     width: 600px;
     height: 400px;
-    background-color: sandybrown;
+    /* background-color: sandybrown; */
 }
+
+#slt_nivel{
+    min-width: 210px;
+    width: auto;
+    height: 30px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    border: solid 1px black;
+}
+
 
 #tbl_niveis{
     width: 800px;
     min-height: 10px;
     height: auto;
-    background-color: aqua;
+    padding-top: 25px;
+    margin-bottom: 75px;
+    /* background-color: aqua; */
+}
+#tbl_niveis tr{
+    height: 30px;
+}
+#tbl_niveis tr td{
+    border: solid 1px black;
 }
 
 /********************************/
 /****** Cadastrar Usuario ******/
 
 #container_usuario{
-    width: inherit;
+    width: 1100px;
     min-height: 500px;
     height: auto;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
+    /* background-color: aqua; */
     
 }
 
 #cadastro_usuario{
-    width: 800px;
+    width: 900px;
     min-height: 50px;
     height: auto;
-    background-color: darkgray;
+    /* background-color: darkgray; */
     margin-bottom: 50px;
+    padding-top: 30px;
 }
 
 #container_consulta_usuarios{
-    width: 800px;
+    width: inherit;
     min-height: 50px;
     height: auto;
-/*    background-color: salmon;*/
+   /* background-color: salmon; */
 }
 
 #consulta_usuarios{
     width: inherit;
     min-height: 0px;
     height: auto;
+    margin-bottom: 75px;
 }
+#consulta_usuarios tr {
+    height: 35px;
+    
+}
+
 #consulta_usuarios tr td{
     border: solid 1px black;
+    padding: 0px 4px 0px 4px;
 }
 
 

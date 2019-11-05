@@ -14,12 +14,23 @@
         $login = $_POST['txt_login'];
         $senha = $_POST['txt_senha'];
         $nivel = $_POST['slt_nivel'];
+
+        $codigo = $_SESSION['codigo'];
         
         if(strtoupper($_POST['btn_cadastrar']) == "CADASTRAR"){
             
             $sqlUsuario = "insert into 
                                 tbl_usuarios(nome, email, login, senha, fk_nivel)
                                 values('".$nome."','".$email."', '".$login."', '".$senha."', ".$nivel.");";
+
+        }elseif(strtoupper($_POST['btn_cadastrar']) == "EDITAR"){
+            $sqlUsuario = "update tbl_usuarios set
+                                nome = '".$nome."',
+                                email = '".$email."',
+                                login = '".$login."',
+                                senha = '".$senha."',
+                                fk_nivel = ".$nivel." 
+                                where codigo = ".$codigo.";";
         }
         
         echo($sqlUsuario);
@@ -35,6 +46,9 @@
                         window.location.href = '../cms/cadastrar_usuario.php';
                 </script>");
         }
+
+        // encerar variavel de sessão
+        unset($_SESSION['codigo']);
     }
     
 ?>
