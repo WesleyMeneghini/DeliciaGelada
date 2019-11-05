@@ -1,5 +1,5 @@
 
-<?php 
+<?php
     // Verificar se a variavel de sessão está ativa no servidos
     if(!isset($_SESSION)){
         session_start();
@@ -9,6 +9,12 @@
     $conexao = conexaoMysql();
 
     $botao = (string) "CADASTRAR";
+    $codNivel = (int) 0;
+    $codUsuarioNivel = (int) 0;
+    $nomeUsuario = (string) "";
+    $emailUsuario = (string) "";
+    $loginUsuario = (string) "";
+    $senhaUsuario = (string) "";
 
     if(isset($_GET['modo'])){
         
@@ -26,8 +32,12 @@
             $select = mysqli_query($conexao, $sql);
                 
             if($rsUsuarios = mysqli_fetch_array($select)){
-                $nome = $rsUsuarios['nome'];
-                $email = $rsUsuarios['email'];
+                $nomeUsuario = $rsUsuarios['nome'];
+                $emailUsuario = $rsUsuarios['email'];
+                $loginUsuario = $rsUsuarios['login'];
+                $senhaUsuario = $rsUsuarios['senha'];
+                $nivelUsuario = $rsUsuarios['nivel_nome'];
+                $codUsuarioNivel = $rsUsuarios['fk_nivel'];
             }
         }
     }
@@ -63,7 +73,7 @@
                                 <input
                                    type="text"
                                    name="txt_nome"
-                                   value="<?=$nome?>"
+                                   value="<?=$nomeUsuario?>"
                                    max-length="45"
                                    required/>
                             </p>
@@ -73,7 +83,7 @@
                                 <input
                                    type="email"
                                    name="txt_email"
-                                   value="<?=$email?>"
+                                   value="<?=$emailUsuario?>"
                                    max-length="45"
                                    required/>
                             </p>
@@ -83,7 +93,7 @@
                                 <input
                                    type="text"
                                    name="txt_login"
-                                   value=""
+                                   value="<?=$loginUsuario?>"
                                    max-length="45"
                                    required/>
                             </p>
@@ -93,7 +103,7 @@
                                 <input
                                    type="password"
                                    name="txt_senha"
-                                   value=""
+                                   value="<?=$senhaUsuario?>"
                                    max-length="45"
                                    required/>
                             </p>
@@ -102,11 +112,23 @@
                                 <select 
                                     name="slt_nivel">
                                     
-                                    <option value="">Escolha um Nível</option>
+                                    <?php
+                                        if(strtoupper($_GET['modo']) == "EDITAR"){
+                                    ?>
                                     
-                                    <?php 
-                                        
-                                        $sqlNiveis = "select * from tbl_niveis;";
+                                    <option value="<?=$codUsuarioNivel?>"><?=$nivelUsuario?></option>
+
+                                    <?php
+                                        }else{
+
+                                    ?>
+
+                                    <option value="">Escolha um Nível</option>
+
+                                    <?php
+                                        }
+
+                                        $sqlNiveis = "select * from tbl_niveis where codigo <> ".$codUsuarioNivel;
                                         
                                         $selectNiveis = mysqli_query($conexao, $sqlNiveis);
                                         
@@ -122,7 +144,7 @@
                                     
                                     </option>
                                     
-                                    <?php 
+                                    <?php
                                         }
                                     ?>
                                     
@@ -151,7 +173,7 @@
                                 <td>Excluir</td>
                             </tr>
                             
-                            <?php 
+                            <?php
                                 
                                 $sqlUsuarisNiveis = "select tbl_usuarios.*, tbl_niveis.nome as nome_nivel 
                                                     from tbl_usuarios inner join tbl_niveis
@@ -176,7 +198,7 @@
                                 <td>Excluir</td>
                             </tr>
                             
-                            <?php 
+                            <?php
                                 }
                             ?>
                             
