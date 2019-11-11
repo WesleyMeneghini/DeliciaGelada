@@ -11,21 +11,8 @@
                 require_once('menu.php');
             ?>
             <div class="conteudo_cms">
-                <h1>
-                    <a href="adm_pagina_curiosidades.php"> 
-                        Pagina de Curiosidades
-                    </a>
-                </h1>
-                <h1>
-                    <a href="adm_pagina_empresa.php"> 
-                        Pagina Sobre a Empresa
-                    </a>
-                </h1>
-                <h1>
-                    <a href="adm_pagina_lojas.php"> 
-                        Pagina Nossas Lojas
-                    </a>
-                </h1>
+                <div class="conteudo_editar center">
+                </div>
             </div>
             <?php
                 require_once('rodape.php');

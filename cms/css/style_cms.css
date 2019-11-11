@@ -63,6 +63,13 @@ figure{
     width: 800px;
 }
 
+.bkg-red{
+    background-color: red;
+}
+.float-left{
+    float:left;
+}
+
 
 
 
@@ -412,6 +419,43 @@ a{
     border: solid 1px black;
     padding: 0px 4px 0px 4px;
 }
+
+
+/************************************/
+/****** Administração Conteudo ******/
+
+.conteudo_cms{
+    width: inherit;
+    min-height: 500px;
+    height: auto;
+/*    background-color: aqua;*/
+}
+.conteudo_editar{
+    width: 800px;
+    height: auto;
+    min-height: 500px;
+    background-color: darkgray;
+}
+.area_conteudo{
+    width: 200px;
+    height: 200px;
+    resize: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -98,10 +98,11 @@
                             Administração Fale Conosco
                         </p>
                         <p>
-                            <input type="checkbox"
-                            name="txt_adm_usuarios" 
-                            value="1"
-                            <?=$chkAdmUsuarios?>> 
+                            <input 
+                                type="checkbox"
+                                name="txt_adm_usuarios" 
+                                value="1"
+                                <?=$chkAdmUsuarios?>> 
                             Administração Usuários 
                         </p>
                         <br>
@@ -115,8 +116,8 @@
                 <table id="tbl_niveis" class="center">
                     <tr>
                         <td>Nome</td>
+                        <td>Permissões</td>
                         <td>Editar</td>
-                        <td>Visualizar</td>
                         <td>Ativar/Desativar</td>
                         <td>Excluir</td>
                     </tr>
@@ -134,7 +135,19 @@
                     ?>
                     
                     <tr>
-                        <td><?=$rsNiveis['nome']?></td>
+                        <td>
+                            <?=$rsNiveis['nome']?>
+                        </td>
+                        <td>
+                            <a href="niveis_acesso.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>">
+                                <div class="icone_tabela center bkg-red float-left">
+                                </div>
+                                <div class="icone_tabela center bkg-red float-left">
+                                </div>
+                                <div class="icone_tabela center bkg-red float-left">
+                                </div>
+                            </a>
+                        </td>
                         <td>
                             <a href="niveis_acesso.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>">
                                 <div class="icone_tabela center">
@@ -142,7 +155,7 @@
                                 </div>
                             </a>
                         </td>
-                        <td>Visualizar</td>
+                        
                         <td>Ativar/Desativar</td>
                         <td>Excluir</td>
                     </tr>
