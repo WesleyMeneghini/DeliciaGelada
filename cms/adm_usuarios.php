@@ -13,7 +13,7 @@
             ?>
 
             <div class="container_usuarios">
-                <h1><a href="niveis_acesso.php">Niveis de Acesso</a></h1>
+                <h1><a href="cadastrar_niveis_acesso.php">Niveis de Acesso</a></h1>
                 <h1><a href="cadastrar_usuario.php">Criar usuário</a></h1>
                 
 <!--                <div id="usuarios" class="center ">-->
