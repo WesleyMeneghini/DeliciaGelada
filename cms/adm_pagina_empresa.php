@@ -117,7 +117,7 @@
 
                         <?php
 
-                            if(!(strtoupper($modo) == "EDITAR")){
+                            // if(!(strtoupper($modo) == "EDITAR")){
 
                         ?>
                         <p>
@@ -127,7 +127,7 @@
                         </p>
 
                         <?php
-                            }
+                            // }
                         ?>
 
                         <p>
