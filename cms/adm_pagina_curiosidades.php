@@ -1,8 +1,40 @@
 <?php 
     
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
     require_once('../bd/conexao.php');
 
     $conexao = conexaoMysql();
+
+    $botao = (string) "INSERIR";
+    $titulo = (string) "";
+    $conteudo = (string) "";
+    $imagem = (string) "";
+
+    if(isset($_GET['modo'])){
+
+        if(strtoupper($_GET['modo']) == 'EDITAR'){
+        
+            $codigoCuriosidades = $_GET['codigo'];
+            $_SESSION['codigoCuriosidades'] = $codigoCuriosidades;
+
+            $sqlCuriosidades = "select * from tbl_curiosidades where codigo=".$codigoCuriosidades.";";
+
+            $select = mysqli_query($conexao, $sqlCuriosidades);
+
+            if($rsCuriosidades = mysqli_fetch_array($select)){
+
+                $titulo = $rsCuriosidades['titulo'];
+                $conteudo = $rsCuriosidades['conteudo'];
+                $_SESSION['fotoCuriosidades'] = $rsCuriosidades['imagem'];
+
+                $botao = "EDITAR";
+            }
+        }
+    }
+    
 ?>
 
 <html lang="pt-br">
@@ -34,6 +66,7 @@
                                    type="text" 
                                    name="txt_titulo" 
                                    maxlength="100" 
+                                   value="<?=$titulo?>"
                                    required>
                         </p>
                         <p> 
@@ -42,20 +75,19 @@
                                       class="area_conteudo" 
                                       name="txt_mensagem" 
                                       maxlength="2000" 
-                                      required></textarea>
+                                      required><?=$conteudo?></textarea>
                         </p>
                         <p>
                             Imagem: 
                             <input 
                                    type="file" 
-                                   name="fle_foto" 
-                                   required>
+                                   name="fle_foto">
                         </p>
                         <p>
                             <input 
                                    type="submit" 
                                    name="btn_salvar" 
-                                   value="INSERIR">
+                                   value="<?=$botao?>">
                         </p>
                     </form>
                     <table>

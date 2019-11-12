@@ -139,7 +139,7 @@
                             <?=$rsNiveis['nome']?>
                         </td>
                         <td>
-                            <a href="niveis_acesso.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>">
+                            <a href="cadastrar_niveis_acesso.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>">
                                 <div class="icone_tabela center bkg-red float-left">
                                 </div>
                                 <div class="icone_tabela center bkg-red float-left">
@@ -149,7 +149,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="niveis_acesso.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>">
+                            <a href="cadastrar_niveis_acesso.php?modo=editar&codigo=<?=$rsNiveis['codigo']?>">
                                 <div class="icone_tabela center">
                                     <img src="icones/lapis.png" class="bkg-img"/>
                                 </div>

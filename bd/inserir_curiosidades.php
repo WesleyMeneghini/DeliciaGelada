@@ -1,75 +1,104 @@
 <?php 
-    
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
     require_once('conexao.php');
     
     $conexao = conexaoMysql();
 
-    if(strtoupper($_POST['btn_salvar']) == 'INSERIR'){
-        
+    if(isset($_POST['btn_salvar'])){
+
         $titulo = $_POST['txt_titulo'];
-        $mensagem = $_POST['txt_mensagem'];
+        $conteudo = $_POST['txt_mensagem'];
         
-        echo($titulo."<br>");
-        var_dump($mensagem."<br>");
-        
-        var_dump($_FILES['fle_foto']);
-        
-        if($_FILES['fle_foto']['size'] > 0 
-           && $_FILES['fle_foto']['type'] != ""){
-            
-            $arquivoSize = $_FILES['fle_foto']['size'];
-            $tamanhoArquivo = round($arquivoSize/1024);
-            $extensaoArquivo = $_FILES['fle_foto']['type'];
-            $arquivosPermitidos = array("image/jpg", "image/png", "image/jpeg");
-            
-            if(in_array($extensaoArquivo, $arquivosPermitidos)){
+        // var_dump($_FILES['fle_foto']);
+        if(strtoupper($_POST['btn_salvar']) == 'EDITAR' && $_FILES['fle_foto']['size'] == ""){
                 
-                if($tamanhoArquivo < 2000){
+            $sql = "update tbl_curiosidades set titulo='".$titulo."', conteudo='".$conteudo."' where codigo=".$_SESSION['codigoCuriosidades'].";";
+            
+            if(mysqli_query($conexao, $sql)){
+                if(isset($_SESSION['fotoCuriosidades'])){
+                    unset($_SESSION['fotoCuriosidades']);
+                    unset($_SESSION['codigoCuriosidades']);
+                }
+                echo("
+                    <script>
+                        alert('Dados atualizados com sucesso!');
+                        window.location.href = '../cms/adm_pagina_curiosidades.php';
+                    </script>"
+                );
+            }else{
+                echo("Erro ao executar o script de update no banco <br>".$sql);
+            }
+
+        }else{
+
+            if($_FILES['fle_foto']['size'] > 0 && $_FILES['fle_foto']['type'] != ""){
+            
+                $arquivoSize = $_FILES['fle_foto']['size'];
+                $tamanhoArquivo = round($arquivoSize/1024);
+                $extensaoArquivo = $_FILES['fle_foto']['type'];
+                $arquivosPermitidos = array("image/jpg", "image/png", "image/jpeg");
+                
+                if(in_array($extensaoArquivo, $arquivosPermitidos)){
                     
-                    $nomeArquivo = pathinfo($_FILES['fle_foto']['name'], PATHINFO_FILENAME);
-                    $nomeExtensaoArquivo = pathinfo($_FILES['fle_foto']['name'], PATHINFO_EXTENSION);
-                    
-                    $nomeArquivoCriptrografado = md5(uniqid(time()).$nomeArquivo);
-                    
-                    $foto = $nomeArquivoCriptrografado.".".$nomeExtensaoArquivo;
-                    
-                    $arquivoTmp = $_FILES['fle_foto']['tmp_name'];
-                    
-                    $diretorio = "imagens/";
-                    
-                    if(move_uploaded_file($arquivoTmp, $diretorio.$foto)){
+                    if($tamanhoArquivo < 2000){
                         
-                        if(strtoupper($_POST['btn_salvar']) == 'INSERIR'){
-                            
-                            $sql = "insert into tbl_curiosidades(titulo, conteudo, imagem) values('".$titulo."', '".$mensagem."', '".$foto."');";
-                            echo($sql);
-                        }
+                        $nomeArquivo = pathinfo($_FILES['fle_foto']['name'], PATHINFO_FILENAME);
+                        $nomeExtensaoArquivo = pathinfo($_FILES['fle_foto']['name'], PATHINFO_EXTENSION);
                         
-                        if(mysqli_query($conexao, $sql)){
+                        $nomeArquivoCriptrografado = md5(uniqid(time()).$nomeArquivo);
+                        
+                        $foto = $nomeArquivoCriptrografado.".".$nomeExtensaoArquivo;
+                        
+                        $arquivoTmp = $_FILES['fle_foto']['tmp_name'];
+                        
+                        $diretorio = "imagens/";
+                        
+                        if(move_uploaded_file($arquivoTmp, $diretorio.$foto)){
                             
-                            echo("
-                                <script>
-                                    alert('Email enviado com sucesso!');
-                                    window.location.href = '../cms/adm_pagina_curiosidades.php';
-                                </script>");
+                            if(strtoupper($_POST['btn_salvar']) == 'INSERIR'){
+                                
+                                $sql = "insert into tbl_curiosidades(titulo, conteudo, imagem) values('".$titulo."', '".$conteudo."', '".$foto."');";
+                                // echo($sql);
+                            }
+                            if(strtoupper($_POST['btn_salvar']) == 'EDITAR'){
+                                $sql = "update tbl_curiosidades set titulo='".$titulo."', conteudo='".$conteudo."', imagem='".$foto."' where codigo=".$_SESSION['codigoCuriosidades'].";";
+                                // echo($sql);
+                            }
+                            
+                            if(mysqli_query($conexao, $sql)){
+                                if(isset($_SESSION['fotoCuriosidades'])){
+                                    unlink('imagens/'.$_SESSION['fotoCuriosidades']);
+                                    unset($_SESSION['fotoCuriosidades']);
+                                }
+                                
+                                echo("
+                                    <script>
+                                        alert('Dados cadastrados com sucesso!');
+                                        window.location.href = '../cms/adm_pagina_curiosidades.php';
+                                    </script>"
+                                );
+                                
+                            }else{
+                                echo("Erro ao executar o script no banco <br>".$sql);
+                            }
                             
                         }else{
-                            echo("Erro ao executar o script no banco <br>".$sql);
+                            echo("Não foi possivel enviar o arquivo para o servidor!");
                         }
                         
                     }else{
-                        echo("Não foi possivel enviar o arquivo para o servidor!");
+                        echo(" Tamanho do arquivo tem que ser menor que 2MB");
                     }
                     
                 }else{
-                    echo(" Tamanho do arquivo tem que ser menor que 2MB");
+                    echo("Arquivo não permitido! Arquivos permitidos: .jpg, .png, .jpeg");
                 }
-                
             }else{
-                echo("Arquivo não permitido! Arquivos permitidos: .jpg, .png, .jpeg");
+                echo("Imagem esta com o conteudo vazio!");
             }
-            
         }
-        
     }
 ?>

@@ -35,7 +35,7 @@
             
             echo("<script>
                         alert('Nível cadastrado com sucesso!');
-                        window.location.href = '../cms/niveis_acesso.php';
+                        window.location.href = '../cms/cadastrar_niveis_acesso.php';
                 </script>");
         }else{
             echo("<script>alert('Erro ao cadastrar o nível!');</script>");
