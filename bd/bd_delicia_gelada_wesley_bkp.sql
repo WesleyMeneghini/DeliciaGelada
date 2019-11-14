@@ -1,15 +1,15 @@
-CREATE DATABASE  IF NOT EXISTS `db_delicia_gelada_wesley` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `db_delicia_gelada_wesley` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
 USE `db_delicia_gelada_wesley`;
--- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_delicia_gelada_wesley
 -- ------------------------------------------------------
--- Server version	8.0.17
+-- Server version	8.0.11
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+ SET NAMES utf8 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -23,14 +23,14 @@ USE `db_delicia_gelada_wesley`;
 
 DROP TABLE IF EXISTS `tbl_curiosidades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_curiosidades` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
   `conteudo` text NOT NULL,
   `imagem` varchar(100) NOT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `tbl_curiosidades` (
 
 LOCK TABLES `tbl_curiosidades` WRITE;
 /*!40000 ALTER TABLE `tbl_curiosidades` DISABLE KEYS */;
-INSERT INTO `tbl_curiosidades` VALUES (1,'asas','asasa','26d9e9a626f0226009a4f347929ae3af.jpg'),(2,'asas','asasa','4517275beaa1d3e9b2c3d45397bbb29c.jpg'),(3,'asasasas','asasaasasasasa','581edadb0c5dcdcf72ae610695b3e855.jpg'),(4,'wesley','duhaghdh','990ccc1784a38ccfa5c897b847b57a21.jpg'),(5,'Benefícios de fazer um suco natural ao invés de consumir os industrializados','A vida agitada, muitas vezes, nos obriga a optar por uma alimentação mais rápida em nosso dia a dia. Por esse motivo, tendemos a fazer escolhas não tão corretas quanto à nossa alimentação.\r\nNo entanto, empreender um pouco mais de tempo no preparo de uma alimentação saudável, pode nos render futuro e saúde melhores.\r\nSucos naturais de frutas, por exemplo, são fontes de diversos nutrientes importantes para o nosso corpo. Além de fornecer a energia necessária para “encararmos” mais um dia agitado, ainda ajudam nosso sistema a assimilar os valiosos nutrientes encontrados nos alimentos.','9f2e0003898dd959511454fffe1cab46.jpg'),(6,'Php','Se o parâmetro needle não é uma string, é convertido para um inteiro e aplicado o valor do caractere.\r\nO parâmetro opcional offset permite a você definir a partir de qual caractere em haystack iniciar a busca.\r\nA posição retorna ainda é relativa ao inicio de haystack.','f02c2256b9e53d7a34aceb692d64c9c5.jpg'),(7,'Suco de caju','o suco de caju, assim como o de limão, é ótimo para lidar com aquela ressaca que nunca é bem vinda. Ele vem com caju, água, açúcar, suco de limão e gelo. É bom peneirar depois de pronto para ele não ficar com uma consistência muito espessa. Fica delicioso e é bem fácil de ser feito.','86e476a04607b23e4f4ae8c62f9bf54f.jpg');
+INSERT INTO `tbl_curiosidades` VALUES (1,'asas','asasa','26d9e9a626f0226009a4f347929ae3af.jpg'),(2,'asas','asasa','4517275beaa1d3e9b2c3d45397bbb29c.jpg'),(3,'asasasas','asasaasasasasa','581edadb0c5dcdcf72ae610695b3e855.jpg'),(4,'wesley','duhaghdh','990ccc1784a38ccfa5c897b847b57a21.jpg'),(5,'Benefícios de fazer um suco natural ao invés de consumir os industrializados','A vida agitada, muitas vezes, nos obriga a optar por uma alimentação mais rápida em nosso dia a dia. Por esse motivo, tendemos a fazer escolhas não tão corretas quanto à nossa alimentação.\r\nNo entanto, empreender um pouco mais de tempo no preparo de uma alimentação saudável, pode nos render futuro e saúde melhores.\r\nSucos naturais de frutas, por exemplo, são fontes de diversos nutrientes importantes para o nosso corpo. Além de fornecer a energia necessária para “encararmos” mais um dia agitado, ainda ajudam nosso sistema a assimilar os valiosos nutrientes encontrados nos alimentos.','9f2e0003898dd959511454fffe1cab46.jpg'),(6,'Php','Se o parâmetro needle não é uma string, é convertido para um inteiro e aplicado o valor do caractere.\r\nO parâmetro opcional offset permite a você definir a partir de qual caractere em haystack iniciar a busca.\r\nA posição retorna ainda é relativa ao inicio de haystack.','f02c2256b9e53d7a34aceb692d64c9c5.jpg'),(7,'Suco de caju','o suco de caju, assim como o de limão, é ótimo para lidar com aquela ressaca que nunca é bem vinda. Ele vem com caju, água, açúcar, suco de limão e gelo. É bom peneirar depois de pronto para ele não ficar com uma consistência muito espessa. Fica delicioso e é bem fácil de ser feito.','86e476a04607b23e4f4ae8c62f9bf54f.jpg'),(8,'1','sdbjdjsdjgsjdjgsjgdjgsd','e22016bc83612f26bdf893a420e4a413.jpg');
 /*!40000 ALTER TABLE `tbl_curiosidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,14 +49,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_empresa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_empresa` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
   `conteudo` text NOT NULL,
   `status` tinyint(4) NOT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `tbl_empresa` (
 
 LOCK TABLES `tbl_empresa` WRITE;
 /*!40000 ALTER TABLE `tbl_empresa` DISABLE KEYS */;
-INSERT INTO `tbl_empresa` VALUES (1,'Sobre a Empresa','A Delicia Gelada é brasileira e nasceu da vontade de oferecer um produto diferente de tudo o que você já experimentou. <br><br>\r\n                    Foram anos trabalhando com parceiksfsjfros de tecnologia da Alemanha, EUA, França,Holanda, Japão e Suécia para fazer um suco de verdade, 100% natural e que preserva ao máximo o sabor de cada ingrediente, porque é produzido a partir de frutas e vegetais frescos.<br><br>\r\n                    \r\n                    Hoje, brasileiros e pessoas do mundo todo já aproveitam os benefícios do suco da tampinha verde que você toma aí na sua casa. Queremos estar presentes no seu dia, na sua casa e na sua vida de um jeito natural, assim como tudo o que fazemos.',1),(2,'Php Teste','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.',1);
+INSERT INTO `tbl_empresa` VALUES (1,'Sobre a Empresa','A Delicia Gelada é brasileira e nasceu da vontade de oferecer um produto diferente de tudo o que você já experimentou. <br><br>\r\n                    Foram anos trabalhando com parceiksfsjfros de tecnologia da Alemanha, EUA, França,Holanda, Japão e Suécia para fazer um suco de verdade, 100% natural e que preserva ao máximo o sabor de cada ingrediente, porque é produzido a partir de frutas e vegetais frescos.<br><br>\r\n                    \r\n                    Hoje, brasileiros e pessoas do mundo todo já aproveitam os benefícios do suco da tampinha verde que você toma aí na sua casa. Queremos estar presentes no seu dia, na sua casa e na sua vida de um jeito natural, assim como tudo o que fazemos.',1),(2,'Php Teste','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.',1),(3,'Php 02','o set the PHP executable path, select the Edit in settings.json link under PHP > Validate: Executable Path, which will open your user settings.json file. Add the php.validate.executablePath setting with the path to your PHP installation.<br>\r\no set the PHP executable path, select the Edit in settings.json link under PHP > Validate: Executable Path, which will open our user settings.json file. Add the php.validate.executablePath setting with the path to your PHP installation.<br>\r\n',1);
 /*!40000 ALTER TABLE `tbl_empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,7 +75,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_empresa_card`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_empresa_card` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `tbl_empresa_card` (
   `imagem` varchar(100) NOT NULL,
   `status` tinyint(4) NOT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +92,7 @@ CREATE TABLE `tbl_empresa_card` (
 
 LOCK TABLES `tbl_empresa_card` WRITE;
 /*!40000 ALTER TABLE `tbl_empresa_card` DISABLE KEYS */;
-INSERT INTO `tbl_empresa_card` VALUES (1,'Teste','teste 01','5f9c56a7665407942a89f2131726c7c4.jpg',1),(2,'Missão','“Contribuir para um país mais forte por meio de empresas mais fortes”.','65b5522e791a9cdb137494f4d334bc56.png',1),(3,'Missão',' “Contribuir para um país mais forte por meio de empresas mais fortes”.','af1d5dd1b1300706d3accbab63d29719.png',1),(4,'Java','haghaghsahshagsha','604513dca6fef4316517a0ed81121071.jpg',1),(5,'Java 123','haghaghsahshagsha<br>\r\ndjhdjhjdhaj','e86e7ae4689d48a5d16e813dd405430f.jpg',1),(6,'Fernado','iwfhiohfeio\r\nfjejfhqe\r\nfnkqhfh<br>\r\njsgdasgdjgja','8cbe93b0140ae0497c88fdb1db8baa79.jpg',1),(7,'Teste 03','jsdhjsjds\r\nsdjshjdhs','e6e2eff321ff0afcde270938eb03f850.png',1);
+INSERT INTO `tbl_empresa_card` VALUES (1,'Teste','teste 01','5f9c56a7665407942a89f2131726c7c4.jpg',1),(2,'Missão','“Contribuir para um país mais forte por meio de empresas mais fortes”.','65b5522e791a9cdb137494f4d334bc56.png',1),(3,'Missão',' “Contribuir para um país mais forte por meio de empresas mais fortes”.','af1d5dd1b1300706d3accbab63d29719.png',1),(4,'Java','haghaghsahshagsha','604513dca6fef4316517a0ed81121071.jpg',1),(5,'Java 123','haghaghsahshagsha<br>\r\ndjhdjhjdhaj','e86e7ae4689d48a5d16e813dd405430f.jpg',1),(6,'Fernado','iwfhiohfeio\r\nfjejfhqe\r\nfnkqhfh<br>\r\njsgdasgdjgja','8cbe93b0140ae0497c88fdb1db8baa79.jpg',1),(7,'Teste 03','jsdhjsjds\r\nsdjshjdhs','e6e2eff321ff0afcde270938eb03f850.png',1),(8,'Teste 08','teste','444541d8d346480102aa0d90190252ac.jpg',1);
 /*!40000 ALTER TABLE `tbl_empresa_card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,7 +102,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_faleconosco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_faleconosco` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
@@ -135,7 +135,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_niveis`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_niveis` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -162,7 +162,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_usuarios` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -185,14 +185,6 @@ LOCK TABLES `tbl_usuarios` WRITE;
 INSERT INTO `tbl_usuarios` VALUES (1,'juliana','juliana@gmail.com','juliana','123',4),(2,'juliana','juliana@gmail.com','juliana','123',4),(3,'pedro','pedro@gmail.com','pedro','123',5),(4,'Tux','tux@gmail.com','tux','123',1),(5,'sabrina','sabrina@gmail.com','sabrina','123',6),(6,'Melissa','melissa@gmail.com','melissa','123',8),(7,'melissa','melissa@gmail.com','melissa123','1234',1);
 /*!40000 ALTER TABLE `tbl_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'db_delicia_gelada_wesley'
---
-
---
--- Dumping routines for database 'db_delicia_gelada_wesley'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -203,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-13 12:36:03
+-- Dump completed on 2019-11-14 11:34:56

@@ -50,6 +50,7 @@ figure{
 .bkg-img{
     width: inherit;
     height: inherit;
+    padding: 4px;
 }
 .txt-center{
     text-align: center;
@@ -68,6 +69,15 @@ figure{
 }
 .float-left{
     float:left;
+}
+
+.cicle-image-view{
+    border-radius: 90px;
+}
+
+.foto_tabela{
+    height: 64px;
+    width: 64px;
 }
 
 
@@ -188,8 +198,8 @@ li{
 }
 
 .icone_tabela{
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
 }
 
 

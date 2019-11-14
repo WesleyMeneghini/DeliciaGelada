@@ -165,7 +165,6 @@
                         <tr>
                             <td class="negrito">Título</td>
                             <td class="negrito">Editar</td>
-                            <td class="negrito">Visualizar</td>
                             <td class="negrito">Ativar/Desativar</td>
                             <td class="negrito">Excluir</td>
                         </tr>
@@ -192,7 +191,6 @@
                                     </div>
                                 </a>
                             </td>
-                            <td>Visualizar</td>
                             <td>Ativar/Desativar</td>
                             <td>Excluir</td>
                         </tr>
@@ -206,8 +204,8 @@
                     <table class="tbl-crud center">
                         <tr>
                             <td class="negrito">Título</td>
+                            <td class="negrito">Visualizar Foto</td>
                             <td class="negrito">Editar</td>
-                            <td class="negrito">Visualizar</td>
                             <td class="negrito">Ativar/Desativar</td>
                             <td class="negrito">Excluir</td>
                         </tr>
@@ -224,6 +222,14 @@
 
                         <tr>
                             <td><?=$rsEmpresaCard['titulo']?></td>
+                            
+                            <td>
+                                <div class="foto_tabela center">
+                                    <figure>
+                                        <img src="../bd/imagens/<?=$rsEmpresaCard['imagem']?>" class="bkg-img cicle-image-view" />
+                                    </figure>
+                                </div>
+                            </td>
                             <td>
                                 <a href="adm_pagina_empresa.php?modo=editarEmpresaCard&codigo=<?=$rsEmpresaCard['codigo']?>">
 
@@ -234,7 +240,6 @@
                                     </div>
                                 </a>
                             </td>
-                            <td>Visualizar</td>
                             <td>Ativar/Desativar</td>
                             <td>Excluir</td>
                         </tr>
