@@ -27,11 +27,13 @@
 
             $sql = "select * from tbl_empresa where codigo=".$codigo.";";
             $chkEmpresa = 1;
+            $modo = "EDITAREMPRESA";
 
         }elseif(strtoupper($_GET['modo']) == "EDITAREMPRESACARD"){
 
             $sql = "select * from tbl_empresa_card where codigo=".$codigo.";";
             $chkEmpresaCard = 2;
+            $modo = "EDITAREMPRESACARD";
 
         }
 
@@ -41,6 +43,8 @@
 
             $titulo = $rsSelect['titulo'];
             $conteudo = $rsSelect['conteudo'];
+            $imagem = $rsSelect['imagem'];
+            $_SESSION['imagemCardEmpresa'] = $imagem;
 
             if(isset($rsSelect['imagem'])){
                 $_SESSION['foto'] = $rsSelect['imagem'];
@@ -51,6 +55,8 @@
             }elseif($chkEmpresaCard != ""){
                 $chkEmpresaCard = "checked";
             }
+
+            
 
             $botao = "EDITAR";
         }
@@ -84,6 +90,11 @@
                         enctype="multipart/form-data">
 
                         <p>
+
+                        <?php
+                            if(($modo == "EDITAREMPRESA" || $modo == "" 
+                            )){
+                        ?>
                             <input 
                                 type="radio" 
                                 name="rdo_empresa" 
@@ -91,8 +102,15 @@
                                 <?=$chkEmpresa?>> 
                             Sobre a Empresa
                         </p>
+                        <?php
+                            }
+                        ?>
 
                         <p>
+
+                        <?php
+                            if(($modo == "EDITAREMPRESACARD" || $modo == "" )){
+                        ?>
                             <input 
                                 type="radio" 
                                 name="rdo_empresa" 
@@ -100,6 +118,9 @@
                                 <?=$chkEmpresaCard?>>
                             Missão, Visão e Valores
                         </p>
+                        <?php
+                            }
+                        ?>
 
                         <p>
                             Título: 
@@ -117,7 +138,7 @@
 
                         <?php
 
-                            // if(!(strtoupper($modo) == "EDITAR")){
+                            if(!($modo == "EDITAREMPRESA")){
 
                         ?>
                         <p>
@@ -127,7 +148,7 @@
                         </p>
 
                         <?php
-                            // }
+                            }
                         ?>
 
                         <p>
@@ -163,6 +184,7 @@
                             <td><?=$rsEmpresa['titulo']?></td>
                             <td>
                                 <a href="adm_pagina_empresa.php?modo=editarEmpresa&codigo=<?=$rsEmpresa['codigo']?>">
+                                    
                                     <div class="icone_tabela center">
                                         <figure>
                                             <img src="icones/lapis.png" class="bkg-img"/>
@@ -204,6 +226,7 @@
                             <td><?=$rsEmpresaCard['titulo']?></td>
                             <td>
                                 <a href="adm_pagina_empresa.php?modo=editarEmpresaCard&codigo=<?=$rsEmpresaCard['codigo']?>">
+
                                     <div class="icone_tabela center">
                                         <figure>
                                             <img src="icones/lapis.png" class="bkg-img"/>

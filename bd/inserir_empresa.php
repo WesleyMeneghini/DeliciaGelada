@@ -10,35 +10,63 @@
 
     if(isset($_POST['btn_salvar'])){
 
+        $opcao = $_POST['rdo_empresa'];
         $titulo = $_POST['txt_titulo'];
         $conteudo = $_POST['txt_conteudo'];
-        $opcao = $_POST['rdo_empresa'];
 
         if(strtoupper($opcao) == 'SOBRE A EMPRESA'){
 
             if(strtoupper($_POST['btn_salvar']) == 'INSERIR'){
-                $sql = "insert into tbl_empresa(titulo, conteudo, status) value('".$titulo."', '".$conteudo."', 1);";
+
+                $sql = "insert into tbl_empresa(titulo, conteudo, status) 
+                        value('".$titulo."', '".$conteudo."', 1);";
+
             }elseif(strtoupper($_POST['btn_salvar']) == 'EDITAR'){
-                $sql = "update tbl_empresa set titulo='".$titulo."', conteudo='".$conteudo."' where codigo=".$_SESSION['codigo'].";";
+
+                $sql = "update tbl_empresa set 
+                            titulo='".$titulo."', 
+                            conteudo='".$conteudo."' 
+                            where codigo=".$_SESSION['codigo'].";";
             }
 
             if(mysqli_query($conexao, $sql)){
-                echo("Inseriu na tbl_empresa");
+                if(isset($_SESSION['codigo'])){
+                    unset($_SESSION['codigo']);
+                }
+                echo("
+                    <script>
+                        alert('Texto ".strtolower($_POST['btn_salvar'])." com sucesso!');
+                        window.location.href = '../cms/adm_pagina_empresa.php';
+                    </script>
+                ");
             }else {
-                echo("Erro ao inserir na tbl_empresa!-----  ");
+                echo("Erro ao ".$_POST['btn_salvar']." na tbl_empresa!");
                 echo($sql);
             }
 
         }elseif(strtoupper($opcao) == 'SOBRE A EMPRESA CARD'){
 
             if(strtoupper($_POST['btn_salvar']) == "EDITAR" && $_FILES['fle_foto']['name'] == ""){
-                $sql = "update tbl_empresa_card set titulo='".$titulo."', conteudo='".$conteudo."' where codigo=".$_SESSION['codigo'].";";
+                $sql = "update tbl_empresa_card set 
+                            titulo='".$titulo."', 
+                            conteudo='".$conteudo."' 
+                            where codigo=".$_SESSION['codigo'].";";
 
                 if(mysqli_query($conexao, $sql)){
-                    unset($_SESSION['codigo']);
+                    if(isset($_SESSION['codigo'])){
+                        unset($_SESSION['codigo']);
+                    }
+                    echo("
+                        <script>
+                            alert('Texto ".strtolower($_POST['btn_salvar'])." com sucesso!');
+                            window.location.href = '../cms/adm_pagina_empresa.php';
+                        </script>
+                    ");
                 }else{
-                    echo("Script não rodou! em o update da imagem----");
-                    echo($sql);
+                    echo("
+                        Erro ao ".$_POST['btn_salvar']." os dados sem a imagem selecionada no modo editar!
+                    ");
+                echo($sql);
                 }
 
             }else{
@@ -77,16 +105,26 @@
                                 }
     
                                 if(mysqli_query($conexao, $sql)){
-                                    if(isset($_SESSION['foto'])){
-                                        unlink('imagens/'.$_SESSION['foto']);
-                                        unset($_SESSION['foto']);
+                                    if(isset($_SESSION['imagemCardEmpresa'])){
+                                        unlink('imagens/'.$_SESSION['imagemCardEmpresa']);
+                                        unset($_SESSION['imagemCardEmpresa']);
                                     }
-                                    
-                                    unset($_SESSION['codigo']);
-                                    echo("Inseriu na tbl_empresa_card!");
-    
+                                    if(isset($_SESSION['codigo'])){
+                                        unset($_SESSION['codigo']);
+                                    }
+                                    echo("
+                                        <script>
+                                            alert('".strtolower($_POST['btn_salvar'])." com sucesso na tbl_empresa_card!');
+                                            window.location.href = '../cms/adm_pagina_empresa.php';
+                                        </script>
+                                    ");
                                 }else {
-                                    echo("Erro ao inserir na tbl_empresa_card ");
+                                    echo("
+                                        <script>
+                                            alert('Erro ao ".strtolower($_POST['btn_salvar'])." na tbl_empresa_card!');
+                                            /*window.location.href = '../cms/adm_pagina_empresa.php*/';
+                                        </script>
+                                    ");
                                     echo($sql);
                                 }
     
@@ -108,7 +146,7 @@
             
 
         }else{
-            echo("Opção do radio nao selecionada");
+            echo("Opção do radio nao selecionada!");
         }
 
     }
