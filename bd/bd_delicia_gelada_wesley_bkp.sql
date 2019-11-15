@@ -1,15 +1,15 @@
-CREATE DATABASE  IF NOT EXISTS `db_delicia_gelada_wesley` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+CREATE DATABASE  IF NOT EXISTS `db_delicia_gelada_wesley` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `db_delicia_gelada_wesley`;
--- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_delicia_gelada_wesley
 -- ------------------------------------------------------
--- Server version	8.0.11
+-- Server version	8.0.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- SET NAMES utf8 ;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -23,7 +23,7 @@ USE `db_delicia_gelada_wesley`;
 
 DROP TABLE IF EXISTS `tbl_curiosidades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_curiosidades` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
@@ -49,7 +49,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_empresa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_empresa` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
@@ -75,7 +75,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_empresa_card`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_empresa_card` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
@@ -102,7 +102,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_faleconosco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_faleconosco` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
@@ -130,12 +130,46 @@ INSERT INTO `tbl_faleconosco` VALUES (1,'wesley','','(11) 11111-1111','wesley@gm
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tbl_lojas`
+--
+
+DROP TABLE IF EXISTS `tbl_lojas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tbl_lojas` (
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `telefone` varchar(45) NOT NULL,
+  `cep` varchar(45) NOT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `logradouro` varchar(45) NOT NULL,
+  `localidade` varchar(45) NOT NULL,
+  `uf` varchar(2) NOT NULL,
+  `numero` varchar(45) NOT NULL,
+  `imagem` varchar(45) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tbl_lojas`
+--
+
+LOCK TABLES `tbl_lojas` WRITE;
+/*!40000 ALTER TABLE `tbl_lojas` DISABLE KEYS */;
+INSERT INTO `tbl_lojas` VALUES (1,'Wesley','(11) 4002-8922','06.616-060','Casa 01','Vila Ouro Verde','Rua Conde de Marialva','Jandira','SP','81','',1),(2,'SHOPPING UNIAO','(44) 4444-4444','06.616-060','','Vila Ouro Verde','Rua Conde de Marialva','Jandira','RJ','81','146577abae61abb6dfbe3bbbacc45154.jpg',1),(3,'DELICIA GELADA ANHAGABAU','(44) 4444-4444','06.616-020','','Vila Ouro Verde','Rua Patriarca','Jandira','SP','98','bb6620a0a6e2a9f9b60b41b18a03b435.jpg',1),(4,'Shopping iguatemi','(88) 8888-8888','06.454-000','','Alphaville Centro Industrial e Empresarial/Alphaville.','Alameda Rio Negro','Barueri','SP','54','b1a48b330113b754063bb4f9735ac11c.jpg',1),(5,'Shopping iguatemi','(88) 8888-8888','06.454-000','','Alphaville Centro Industrial e Empresarial/Alphaville.','Alameda Rio Negro','Barueri','SP','544','',1),(6,'SHOPPING TAMBORÉ','(66) 6666-6666','05.465-000','Praça Pinheiros','Alto de Pinheiros','Rua Cristalândia','São Paulo','SP','489','0d042becf3f43f1c34e65f2c468b6258.jpg',1),(7,'DELICIA GELADA  IGUATEMI','11987168989','06616-060','','Vila Ouro Verde','Rua Conde de Marialva','Jandira','RS','81','00d1b40b090297e3a0a087a1a8acc3e1.jpg',1),(8,'Shopping iguatemi','(99) 9999-9999','06.454-000','54','Alphaville Centro Industrial e Empresarial/Alphaville.','Alameda Rio Negro','Barueri','SP','54','2069b5db2d58bb1543360619796951bb.jpg',1);
+/*!40000 ALTER TABLE `tbl_lojas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_niveis`
 --
 
 DROP TABLE IF EXISTS `tbl_niveis`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_niveis` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -162,7 +196,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tbl_usuarios` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -185,6 +219,14 @@ LOCK TABLES `tbl_usuarios` WRITE;
 INSERT INTO `tbl_usuarios` VALUES (1,'juliana','juliana@gmail.com','juliana','123',4),(2,'juliana','juliana@gmail.com','juliana','123',4),(3,'pedro','pedro@gmail.com','pedro','123',5),(4,'Tux','tux@gmail.com','tux','123',1),(5,'sabrina','sabrina@gmail.com','sabrina','123',6),(6,'Melissa','melissa@gmail.com','melissa','123',8),(7,'melissa','melissa@gmail.com','melissa123','1234',1);
 /*!40000 ALTER TABLE `tbl_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'db_delicia_gelada_wesley'
+--
+
+--
+-- Dumping routines for database 'db_delicia_gelada_wesley'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -195,4 +237,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-14 11:34:56
+-- Dump completed on 2019-11-15  1:31:41
