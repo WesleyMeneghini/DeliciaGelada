@@ -66,6 +66,27 @@ function mascaraFone(objeto, event, tipoDeDados) {
     // console.log(resultado);
 }
 
+function mascaraCep(objeto, event){
+
+    if (validarEntrada(event, "string") == false) {
+        return false;
+    }else{
+        var input = objeto.value;
+        var id = objeto.id;
+        var resultado = input;
+
+        if(input.length == 2){
+            resultado += ".";
+        }else if(input.length == 6){
+            resultado += "-";
+        }else if(input.length == 10){
+            return false;
+        }
+        return document.getElementById(id).value = resultado;
+    }
+
+}
+
 function confirmacaoDeFormulario(){
     alert("e-mail enviado com sucesso!");
 }
