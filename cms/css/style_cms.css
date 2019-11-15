@@ -58,6 +58,12 @@ figure{
 .bkg-primary{
     background-color: #29bb2e;
 }
+.txt-erro{
+    /* height: 30px; */
+    /* width: 100px; */
+    color: red;
+    padding-top: 18px;
+}
 
 .conteudo{
     height: inherit;
@@ -79,6 +85,11 @@ figure{
     height: 64px;
     width: 64px;
 }
+.foto_tabela_retangular{
+    height: 64px;
+    width: 128px;
+    border-radius: 4px;
+} 
 
 
 

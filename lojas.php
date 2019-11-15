@@ -1,3 +1,13 @@
+<?php
+    require_once('bd/conexao.php');
+
+    $conexao = conexaoMysql();
+
+    $filtro = (string) "";
+    $estadoSelecionado = (string) "";
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -30,99 +40,119 @@
 
                 <!-- Busca das lojas por regiao -->
                 <div id="container_lojas" class="center">
-                    <div id="lojas_estados" class="bkg-primary">
-                        <div class="txt_estado">
-                            Informe seu estado
-                        </div>
-                        <div class="selecionar_estados">
-                            <form name="estados" method="post" action="lojas.php">
-                                <select class="select_estados">
-                                    <option value="0">Informe seu estado</option>
-                                    <option value="SP">São Paulo</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                </select>
-                            </form>
-                        </div>
-                        <!-- Nome do estado selecionado -->
-                        <div class="resultado_estado">
-                            <span class="txt-white txt-size-14">
-                                Resultado para xxxxx
-                            </span>
-                        </div>
-                        <!-- Resultado de quantas lojas foram encontradas pelo estado selecionado -->
-                        <div class="resultado_estado">
-                            <span class="txt-white txt-size-14">
-                                xx lojas encontradas
-                            </span>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
 
-                    <!-- Primeira Loja -->
-                    <div class="flip">
-                        <p class="nome_loja">
-                            SHOPPING PLAZA OSASCO
-                        </p>
-                    </div>
-                    <div class="panel">
-                        <div class="endereco_loja">
-                            <p>Avenida Industrial, 600</p>
-                            <p>Complemento: ESPCML552T</p>
-                            <p>CEP 09080-500 - Santo André - Santo André/SP</p>
-                            <p>Tel: (11) 4380-9197</p>
-                        </div>
-                        <div class="endereco_loja">
-                            <figure>
-                                <img src="img/loja.jpg" class="bkg-img" alt="foto da loja">
-                            </figure>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-
-                    <!-- Segunda Loja -->
-                    <div class="flip">
-                        <p class="nome_loja">
-                            SHOPPING FREI CANECA
-                        </p>
-                    </div>
-                    <div class="panel panel2">
-                        <div class="endereco_loja">
-                            <p>Avenida Industrial, 600</p>
-                            <p>Complemento: ESPCML552T</p>
-                            <p>CEP 09080-500 - Santo André - Santo André/SP</p>
-                            <p>Tel: (11) 4380-9197</p>
-                        </div>
-                        <div class="endereco_loja">
-                            <figure>
-                                <img src="img/loja.jpg" class="bkg-img" alt="foto da loja">
-                            </figure>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-
-                    <!-- Terceira Loja -->
-                    <div class="flip">
-                        <p class="nome_loja">
-                            SHOPPING IGUATEMI 
-                        </p>
-                    </div>
-                    <div class="panel">
-                        <div class="endereco_loja">
-                            <p>Avenida Industrial, 600</p>
-                            <p>Complemento: ESPCML552T</p>
-                            <p>CEP 09080-500 - Santo André - Santo André/SP</p>
-                            <p>Tel: (11) 4380-9197</p>
-                        </div>
-                        <div class="endereco_loja">
-                            <figure>
-                                <img src="img/loja.jpg" class="bkg-img" alt="foto da loja">
-                            </figure>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
                     
+
+                    <div id="lojas_estados" class="bkg-primary">
+                        <form name="estados" method="get" action="lojas.php">
+
+                            <div class="txt_estado">
+                                Informe seu estado
+                            </div>
+                            <div class="resultado_estado_busca">
+                                <select class="select_estados" name="slt_estados">
+                                    <option value="">Informe seu estado</option>
+
+                                    <?php
+                                        $sql = "select distinct uf from tbl_lojas;";
+                                        $select = mysqli_query($conexao, $sql);
+                                        while($rsEstados = mysqli_fetch_array($select)){
+                                    ?>
+
+                                    <option value="<?=$rsEstados['uf']?>"><?=$rsEstados['uf']?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                    <!-- <option value="RJ">Rio de Janeiro</option> -->
+                                    <!-- <option value="MG">Minas Gerais</option> -->
+                                    <!-- <option value="RS">Rio Grande do Sul</option> -->
+                                </select>
+                                    
+                            </div>
+                            <div class="resultado_estado_busca">
+                                <input class="button " type="submit" name="btn_buscar" value="OK">
+                            </div>
+                            <!-- Nome do estado selecionado -->
+                            <div class="resultado_estado">
+                                <span class="txt-white txt-size-14">
+                                    <?php
+                                        if(isset($_GET['slt_estados']) && $_GET['slt_estados'] != ""){
+                                            echo("Resultado para ".$_GET['slt_estados']);
+                                        }else{
+                                            echo("Resultado para todos os estados");
+                                        }
+                                    ?>
+                                </span>
+                            </div>
+                            <!-- Resultado de quantas lojas foram encontradas pelo estado selecionado -->
+                            <div class="resultado_estado">
+                                <span class="txt-white txt-size-14">
+                                    <!-- xx lojas encontradas -->
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                        </form>
+
+                    </div>
+
+                    <?php
+
+                        if(isset($_GET['slt_estados']) && $_GET['slt_estados'] !== "") {
+
+                            $filtro = strtoupper($_GET['slt_estados']);
+                            $sql = "select * from tbl_lojas where uf='".$filtro."';";
+
+                        }else {
+                            $sql = "select * from tbl_lojas;";
+                        }
+
+                        $select = mysqli_query($conexao, $sql);
+
+                        while($rsLojas = mysqli_fetch_array($select)){
+
+                    ?>
+
+                    <!-- Loja -->
+                    <div class="flip">
+                        <p class="nome_loja">
+                            <?=$rsLojas['nome']?>
+                        </p>
+                    </div>
+                    <div class="panel">
+                        <div class="endereco_loja">
+                            <p><?=$rsLojas['logradouro']?>, <?=$rsLojas['numero']?></p>
+                            <p>CEP <?=$rsLojas['cep']?> - <?=$rsLojas['bairro']?> - <?=$rsLojas['localidade']?>/<?=$rsLojas['uf']?></p>
+                            <p>Tel: <?=$rsLojas['telefone']?></p>
+                            <p>
+                                <?php
+                                    if($rsLojas['complemento'] != ""){
+                                        echo("Complemento: ".$rsLojas['complemento']);
+                                    }
+                                ?>
+                            </p>
+                        </div>
+                        <div class="imagem_loja">
+                            <figure>
+                                <?php
+                                    if($rsLojas['imagem'] != ""){
+                                ?>
+                                <img src="bd/imagens/<?=$rsLojas['imagem']?>" class="bkg-img" alt="foto da loja">
+                                <?php
+                                    }else{
+                                ?>
+                                <img src="icones/sem_foto_icone.jpg" class="bkg-img" alt="foto da loja">
+                                <?php
+                                    }
+                                ?>
+                            </figure>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <?php
+                        }
+                    ?>
+
                     <!-- Script para abrir o enderelo das lojas -->
                     <!-- Este script ainda esta em fase de modificacao -->
                     <script> 
@@ -132,6 +162,7 @@
                         });
                         });
                     </script>
+
                 </div>
             </div>
         </section>

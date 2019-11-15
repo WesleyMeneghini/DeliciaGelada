@@ -193,8 +193,9 @@
 
                     <table class="tbl-crud center">
                         <tr>
+                            <td class="negrito">Foto da Loja</td>
                             <td class="negrito">Nome Loja</td>
-                            <td class="negrito">Visualizaz</td>
+                            <td class="negrito">Visualizar</td>
                             <td class="negrito">Editar</td>
                             <td class="negrito">Ativar/Desativar</td>
                             <td class="negrito">Excluir</td>
@@ -210,6 +211,23 @@
                         ?>
 
                         <tr>
+                            <td>
+                                <div class="foto_tabela_retangular center">
+                                    <?php
+                                        if($rsLojas['imagem'] != ""){
+                                            
+                                            // var_dump($rsLojas['imagem']);
+                                    ?>
+                                    <figure>
+                                        <img src="../bd/imagens/<?=$rsLojas['imagem']?>" class="bkg-img">
+                                    </figure>
+                                    <?php
+                                        }else{
+                                            echo("<p class='txt-erro'>Loja sem foto!</p>");
+                                        }
+                                    ?>
+                                </div>
+                            </td>
                             <td><?=$rsLojas['nome']?></td>
                             <td>Visualizar</td>
                             <td>

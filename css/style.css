@@ -47,6 +47,11 @@ figure{
     background-color:  #29bb2e;
     color: #ffffff;
 }
+.is-primary{
+    background-color:  #29bb2e;
+    color: #ffffff;
+}
+
 .txt-red{
     color: red;
 }
@@ -377,7 +382,21 @@ figure{
     padding-top: 5px;
 }
 
-
+.button{
+    width: auto;
+    min-height: 20px;
+    height: auto;
+    padding: 8px;
+    box-sizing: content-box;
+    border-radius: 12px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.button:hover{
+    background-color: darkgoldenrod;
+    color: white;
+    cursor: pointer;
+}
 
 
 .p_form, .select_form{
@@ -441,7 +460,7 @@ figure{
 
 #conteudo_lojas{
     width: 100%;
-    min-height: 800px;
+    min-height: 1000px;
     height: auto;
     padding-top: 80px;
 }
@@ -468,12 +487,15 @@ figure{
 }
 #lojas_estados{
     width: inherit;
-    height: 40px;
+    min-height: 40px;
+    height: auto;
     /* background-color: gold; */
     border: solid 1px black;
     box-shadow: 4px 2px black;
     margin-bottom: 20px;
     border-radius: 4px;
+    padding: 10px 0px;
+    box-sizing: content-box;
 }
 
 .txt_estado{
@@ -486,12 +508,13 @@ figure{
     float: left;
 }
 .selecionar_estados{
-    width: 200px;
+    min-width: 100px;
+    width: auto;
     height: inherit;
     padding: 5px 0px 0px 10px;
 /*    background-color:forestgreen;*/
     float: left;
-    margin-right: 50px;
+    margin-right: 10px;
 
 }
 .select_estados{
@@ -502,13 +525,18 @@ figure{
 
 
 .resultado_estado{
-    width: 290px;
+    min-width: 190px;
     height: inherit;
     float: left;
    /* background-color: rosybrown; */
 /*    margin-left: 80px;*/
     padding: 10px 0px 0px 10px;
+    /* color: black; */
+    /* background-color: blue; */
     
+}
+.resultado_estado_busca{
+    float: left;
 }
 
 
@@ -552,9 +580,17 @@ figure{
 }
 
 .endereco_loja{
-    width: 50%;
-    height: 80px;
+    width: 700px;
+    min-height: 80px;
+    height: auto;
     float: left;
+    /* background-color: darkblue; */
+}
+.imagem_loja{
+    width: 180px;
+    height: 80px;
+    float: right;
+    margin-right: 25px;
 }
 
 
