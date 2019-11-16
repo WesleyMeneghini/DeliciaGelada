@@ -17,8 +17,8 @@
         
         if(strtoupper($_POST['btn_cadastrar']) == "SALVAR"){
 
-            $sql = "insert into tbl_niveis(nome, adm_conteudo, adm_faleconosco, adm_usuarios) 
-            values('".$nome."', ".$AdmConteudo.", ".$AdmFaleConosco.", ".$AdmUsuarios.");";
+            $sql = "insert into tbl_niveis(nome, adm_conteudo, adm_faleconosco, adm_usuarios, status) 
+            values('".$nome."', ".$AdmConteudo.", ".$AdmFaleConosco.", ".$AdmUsuarios.", 1);";
 
         }elseif(strtoupper($_POST['btn_cadastrar']) == "EDITAR"){
 
@@ -30,7 +30,7 @@
                         where codigo=".$codigoNivel.";";
                         
         }
-        echo($sql);
+        // echo($sql);
         if(mysqli_query($conexao, $sql)){
             
             echo("<script>

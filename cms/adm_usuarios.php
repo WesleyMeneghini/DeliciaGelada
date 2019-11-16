@@ -12,36 +12,20 @@
                 require_once('menu.php');
             ?>
 
-            <div class="container_usuarios">
-                <h1><a href="cadastrar_niveis_acesso.php">Niveis de Acesso</a></h1>
-                <h1><a href="cadastrar_usuario.php">Criar usuário</a></h1>
-                
-<!--                <div id="usuarios" class="center ">-->
-<!--
-                    <h1 class="txt-center">Cria Usuário</h1>
-                    <form name="cadastrar_usuario" method="post" action="bd/inserir_usuario.php">
-                        <p>
-                            Nome de usuario: 
-                        </p>
-                        <input type="text" name="txt_nome" required>
-                        <p>
-                            Senha:
-                        </p>
-                        <input type="password" name="txt_senha" required>
-                        <p>
-                            Níveis de acesso: 
-                        </p>
-                        <p><input type="checkbox"> Adm. Conteudo</p>
-                        <p><input type="checkbox"> Adm. Fale Conosco</p>
-                        <p><input type="checkbox"> Adm. Usuários</p>
-                        
-                        <input type="submit" name="btn_cadastrar_usuario" value="CADASTRAR">
-                    </form>
---> 
-                    
-<!--                </div>-->
+            <div class="container_usuarios txt-center">
+                <div class="container-links center" style="padding: 100px 0px 100px 0px;">
+                    <a  href="cadastrar_niveis_acesso.php">
+                        <div class="title-link">
+                            <h3>Niveis de Acesso</h3>
+                        </div>
+                    </a>
+                    <a  href="cadastrar_usuario.php">
+                        <div class="title-link">
+                            <h3>Usuários</h3>
+                        </div>
+                    </a>
+                </div>
             </div>
-
             <?php
                 require_once('rodape.php');
             ?>

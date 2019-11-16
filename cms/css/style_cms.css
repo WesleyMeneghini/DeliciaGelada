@@ -5,6 +5,7 @@
     list-style: none;
     font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
+    --color--primary: #29bb2e;
 }
 
 body{
@@ -27,8 +28,35 @@ input{
     min-width: 25px;
     width: auto;
     height: 25px;
-    border: solid 1px black;
+    /* border: solid 1px black; */
     margin-bottom: 5px;
+}
+.input-txt{
+    width: 200px;
+    height: 30px;
+    border-radius: 4px;
+    border: solid 1px var(--color--primary);
+}
+
+.button{
+    width: auto;
+    height: auto;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    border: solid 1px var(--color--primary);
+
+}
+.select{
+    width: auto;
+    height: auto;
+    padding: 4px;
+    border: solid 1px var(--color--primary);
+}
+
+.button, .select{
+    margin-left: 8px;
 }
 
 .negrito{
@@ -75,6 +103,8 @@ figure{
 }
 .float-left{
     float:left;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .cicle-image-view{
@@ -90,6 +120,11 @@ figure{
     width: 128px;
     border-radius: 4px;
 } 
+
+.navegacao{
+    width: 48px;
+    height: 48px;
+}
 
 
 
@@ -143,6 +178,26 @@ nav{
     padding-top: 20px;
     float: left;
     
+}
+
+.form-crud{
+    width: 400px;
+    min-height: 100px;
+    height: auto;
+    /* background-color: seagreen; */
+    margin-bottom: 48px;
+}
+.elemento-checkbox{
+    padding: 8px;
+}
+
+.container_checkbox{
+    width: 250px;
+    min-height: 30px;
+    height: auto;
+    /* background-color: blue; */
+    margin-left: auto;
+    text-align: left;
 }
 
 .menu_itens{
@@ -211,6 +266,7 @@ li{
 .icone_tabela{
     width: 32px;
     height: 32px;
+ 
 }
 
 
@@ -235,16 +291,17 @@ li{
 /*------- Pagina ADM fale conosco-------*/
 
 
-#adm_fale_conosco{
+/* #adm_fale_conosco{
     width: inherit;
     min-height: 500px;
     height: auto;
     padding: 10px;
     padding-top: 50px;
-}
+} */
 #container_filtro{
-    width: 400px;
+    width: 250px ;
     height: 50px;
+    padding: 8px;
     
 }
 
@@ -413,6 +470,34 @@ a{
     border: solid 1px black;
 }
 
+.container_icones{
+    height: 40px;
+    width: 125px;
+    /* background-color: blue; */
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.container-links{
+    width: 250px;
+    min-height: 30px;
+    height: auto;
+    /* background-color: slateblue; */
+}
+
+.title-link{
+    width: inherit;
+    min-height: 10px;
+    height: auto;
+    background-color: var(--color--primary);
+    border: solid 1px black;
+    border-radius: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    box-sizing: content-box;
+    margin-bottom: 16px;
+}
+
 /********************************/
 /****** Cadastrar Usuario ******/
 
@@ -466,12 +551,14 @@ a{
     min-height: 500px;
     height: auto;
 /*    background-color: aqua;*/
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 .conteudo_editar{
     width: 1100px;
     min-height: 500px;
     height: auto;
-    background-color: darkgray;
+    /* background-color: darkgray; */
 }
 .area_conteudo{
     width: 200px;

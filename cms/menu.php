@@ -5,7 +5,7 @@
                 <a href="adm_conteudo.php">
                     <div class="menu_img center">
                     <figure>
-                        <img src="icones/bloqueio.png" class="bkg-img">
+                        <img src="icones/conteudo.png" class="bkg-img">
                     </figure>
                 </div>
                     <p class="negrito">
@@ -17,7 +17,7 @@
                 <a href="fale_conosco.php">
                     <div class="menu_img center">
                     <figure>
-                        <img src="icones/bloqueio.png" class="bkg-img">
+                        <img src="icones/fale_conosco.png" class="bkg-img">
                     </figure>
                 </div>
                     <p class="negrito">
@@ -29,7 +29,7 @@
                 <a href="adm_usuarios.php">
                     <div class="menu_img center">
                     <figure>
-                        <img src="icones/bloqueio.png" class="bkg-img">
+                        <img src="icones/user_group.png" class="bkg-img">
                     </figure>
                 </div>
                     <p class="negrito">
