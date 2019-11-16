@@ -32,68 +32,95 @@
             <div class="conteudo center">
 
                 <!-- Tema da pagina -->
-                <h1 class="txt-size-36">
+                <h1 class="is-2">
                     Localize a Delicia Gelada mais perto de você
                 </h1>
 
                 <!-- Descricao das lojas -->
-                <h2 class="txt-size-16">
+                <h2 class="subtitle is-5">
                     Temos várias lojas espalhadas por todo o Brasil, aproveite agora e escolha a mais perto de você:
                 </h2>
 
-                <!-- Busca das lojas por regiao -->
-                <div id="container_lojas" class="center">
+                <!-- Container com as lojas -->
+                <div 
+                    id="container_lojas" 
+                    class="center">
 
-                    
+                    <div 
+                        id="lojas_estados" 
+                        class="bkg-primary">
 
-                    <div id="lojas_estados" class="bkg-primary">
-                        <form name="estados" method="get" action="lojas.php">
+                        <!-- Formulario para filtrar as lojas por estado -->
+                        <form 
+                            name="estados" 
+                            method="get" 
+                            action="lojas.php">
 
                             <div class="txt_estado">
-                                Informe seu estado
+                                Informe seu estado: 
                             </div>
+
                             <div class="resultado_estado_busca">
-                                <select class="select_estados" name="slt_estados">
-                                    <option value="">Informe seu estado</option>
+
+                                <select 
+                                    class="select_estados" 
+                                    name="slt_estados">
+
+                                    <option value="">
+                                        Informe seu estado
+                                    </option>
 
                                     <?php
+                                        // Select para trazer os estados das lojas cadastradas
                                         $sql = "select distinct uf from tbl_lojas;";
                                         $select = mysqli_query($conexao, $sql);
                                         while($rsEstados = mysqli_fetch_array($select)){
+
                                     ?>
 
-                                    <option value="<?=$rsEstados['uf']?>"><?=$rsEstados['uf']?></option>
+                                    <option value="<?=$rsEstados['uf']?>">
+                                        
+                                        <?=$rsEstados['uf']?>
+                                    
+                                    </option>
                                     <?php
                                         }
                                     ?>
-                                    <!-- <option value="RJ">Rio de Janeiro</option> -->
-                                    <!-- <option value="MG">Minas Gerais</option> -->
-                                    <!-- <option value="RS">Rio Grande do Sul</option> -->
                                 </select>
                                     
                             </div>
+
                             <div class="resultado_estado_busca">
-                                <input class="button " type="submit" name="btn_buscar" value="OK">
+
+                                <input 
+                                    class="ok_input" 
+                                    type="submit" 
+                                    name="btn_buscar" 
+                                    value="OK">
+
                             </div>
+
                             <!-- Nome do estado selecionado -->
-                            <div class="resultado_estado">
-                                <span class="txt-white txt-size-14">
+                            <div class="resultado_estado txt-center">
+
+                                <span class="txt-white txt-size-16">
+
                                     <?php
+
                                         if(isset($_GET['slt_estados']) && $_GET['slt_estados'] != ""){
                                             echo("Resultado para ".$_GET['slt_estados']);
                                         }else{
                                             echo("Resultado para todos os estados");
                                         }
+
                                     ?>
+
                                 </span>
+
                             </div>
-                            <!-- Resultado de quantas lojas foram encontradas pelo estado selecionado -->
-                            <div class="resultado_estado">
-                                <span class="txt-white txt-size-14">
-                                    <!-- xx lojas encontradas -->
-                                </span>
-                            </div>
+
                             <div class="clear"></div>
+
                         </form>
 
                     </div>
@@ -106,7 +133,9 @@
                             $sql = "select * from tbl_lojas where uf='".$filtro."';";
 
                         }else {
+
                             $sql = "select * from tbl_lojas;";
+
                         }
 
                         $select = mysqli_query($conexao, $sql);
@@ -117,41 +146,78 @@
 
                     ?>
 
-                    <!-- Loja -->
-                    <div class="flip ">
-                        <p class="nome_loja flip_on" id="<?="flip_".$flipId?>">
+                    <!-- Nome da Loja -->
+                    <div class="flip">
+
+                        <p 
+                            class="nome_loja flip_on" 
+                            id="<?="flip_".$flipId?>">
+
+                            <!-- Nome da Loja -->
                             <?=$rsLojas['nome']?>
+
                         </p>
+
                     </div>
+
+                    <!--  Informações da Loja -->
                     <div class="panel" id="<?="panel_".$panelId?>">
+
                         <div class="endereco_loja">
-                            <p><?=$rsLojas['logradouro']?>, <?=$rsLojas['numero']?></p>
-                            <p>CEP <?=$rsLojas['cep']?> - <?=$rsLojas['bairro']?> - <?=$rsLojas['localidade']?>/<?=$rsLojas['uf']?></p>
-                            <p>Tel: <?=$rsLojas['telefone']?></p>
+
+                            <p>
+                                <?=$rsLojas['logradouro']?>, 
+                                <?=$rsLojas['numero']?>
+                            </p>
+                            <p>
+                                CEP <?=$rsLojas['cep']?> - 
+                                <?=$rsLojas['bairro']?> - 
+                                <?=$rsLojas['localidade']?>/
+                                <?=$rsLojas['uf']?></p>
+                            <p>
+                                Tel: <?=$rsLojas['telefone']?>
+                            </p>
                             <p>
                                 <?php
+
                                     if($rsLojas['complemento'] != ""){
                                         echo("Complemento: ".$rsLojas['complemento']);
                                     }
+
                                 ?>
                             </p>
+
                         </div>
+
+                        <!-- Foto da Loja -->
                         <div class="imagem_loja">
+
                             <figure>
+
                                 <?php
                                     if($rsLojas['imagem'] != ""){
                                 ?>
-                                <img src="bd/imagens/<?=$rsLojas['imagem']?>" class="bkg-img" alt="foto da loja">
+                                <img 
+                                    src="bd/imagens/<?=$rsLojas['imagem']?>" 
+                                    class="bkg-img" 
+                                    alt="Foto da loja">
                                 <?php
                                     }else{
                                 ?>
-                                <img src="icones/sem_foto_icone.jpg" class="bkg-img" alt="foto da loja">
+                                <img 
+                                    src="icones/sem_foto_icone.jpg" 
+                                    class="bkg-img" 
+                                    alt="Foto da loja">
                                 <?php
                                     }
                                 ?>
+
                             </figure>
+
                         </div>
+
                         <div class="clear"></div>
+
                     </div>
 
                     <?php
@@ -198,10 +264,14 @@
                     </script>
 
                 </div>
+
             </div>
+
         </section>
+
         <?php 
             require_once('rodape.php');
         ?>
+        
     </body>
 </html>

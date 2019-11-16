@@ -40,6 +40,28 @@ figure{
     /* background-color: yellowgreen;    */
 }
 
+.is-1{
+    font-size: 48px;
+}
+.is-2{
+    font-size: 40px;
+}
+.is-3{
+    font-size: 32px;
+}
+.is-4{
+    font-size: 24px;
+}
+.is-5{
+    font-size: 16px;
+}
+.is-6{
+    font-size: 8px;
+}
+.subtitle{
+    color: #3d3d3d;
+}
+
 .clear{
     clear: both;
 }
@@ -483,16 +505,14 @@ figure{
 
 #container_lojas{
     width: 1000px;
-    min-height: 40px;
+    min-height: 100px;
     height: auto;
     margin-bottom: 50px;
-    background-color: white;
 }
 #lojas_estados{
     width: inherit;
-    min-height: 40px;
+    min-height: 28px;
     height: auto;
-    /* background-color: gold; */
     border: solid 1px black;
     box-shadow: 4px 2px black;
     margin-bottom: 20px;
@@ -504,7 +524,7 @@ figure{
 .txt_estado{
     width: 150px;
     height: inherit;
-    padding: 10px 0px 0px 10px;
+    padding: 8px;
 /*    margin-right: 100px;*/
     
 /*    background-color: coral;*/
@@ -536,9 +556,11 @@ figure{
     padding: 10px 0px 0px 10px;
     /* color: black; */
     /* background-color: blue; */
+    /* margin-left: 240px; */
     
 }
 .resultado_estado_busca{
+    margin-left: 10px;
     float: left;
 }
 
@@ -594,6 +616,9 @@ figure{
     height: 80px;
     float: right;
     margin-right: 25px;
+}
+.panel:hover{
+    cursor: inherit;
 }
 
 
