@@ -6,6 +6,9 @@
     $filtro = (string) "";
     $estadoSelecionado = (string) "";
 
+    $flipId = (int) 0;
+    $panelId = (int) 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -109,16 +112,18 @@
                         $select = mysqli_query($conexao, $sql);
 
                         while($rsLojas = mysqli_fetch_array($select)){
+                            $flipId += 1;
+                            $panelId += 1;
 
                     ?>
 
                     <!-- Loja -->
-                    <div class="flip">
-                        <p class="nome_loja">
+                    <div class="flip ">
+                        <p class="nome_loja flip_on" id="<?="flip_".$flipId?>">
                             <?=$rsLojas['nome']?>
                         </p>
                     </div>
-                    <div class="panel">
+                    <div class="panel" id="<?="panel_".$panelId?>">
                         <div class="endereco_loja">
                             <p><?=$rsLojas['logradouro']?>, <?=$rsLojas['numero']?></p>
                             <p>CEP <?=$rsLojas['cep']?> - <?=$rsLojas['bairro']?> - <?=$rsLojas['localidade']?>/<?=$rsLojas['uf']?></p>
@@ -154,13 +159,42 @@
                     ?>
 
                     <!-- Script para abrir o enderelo das lojas -->
-                    <!-- Este script ainda esta em fase de modificacao -->
                     <script> 
+
                         $(document).ready(function(){
-                        $(".flip").click(function(){
-                            $(".panel").slideToggle("slow");
+                            $(this).click(function(ele){
+
+                                // Pegar o id do elemento clicado
+                                let flipId = ele.target.id;
+
+                                // armazenar em array o elemento para pegar o numero
+                                let flipIdArray = flipId.split("_");
+
+                                // ver se o elemento clicado é a classe que ouvir o click
+                                if(flipIdArray[0] == "flip"){
+
+                                    // pegar o elemento clicado
+                                    $panel = document.querySelector(`#panel_${flipIdArray[1]}`);
+
+                                    // remover a classes que foram abertas
+                                    removerClasses("div", "panel2");
+                                    
+                                    // adicionar a classe de abertura no elemento
+                                    $panel.classList.add('panel2');
+
+                                    //abrir o elemento com feito slow
+                                    $(".panel2").slideToggle("slow");
+                                }
+
+                                
+                            });
                         });
-                        });
+
+                        function removerClasses(elemento, classe){
+                            const $elemento = Array.from( document.querySelectorAll(elemento));
+                            $elemento.map( e  => e.classList.remove(classe));
+                        }
+                        
                     </script>
 
                 </div>
