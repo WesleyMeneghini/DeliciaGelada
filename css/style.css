@@ -5,6 +5,8 @@
     list-style: none;
     font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
+    --menu--altura: 80px;   
+
 }
 
 input, textarea{
@@ -42,6 +44,7 @@ figure{
 
 .is-1{
     font-size: 48px;
+    padding: 50px;
 }
 .is-2{
     font-size: 40px;
@@ -111,7 +114,7 @@ figure{
 }
 
 #cabecalho{
-    height: 80px;
+    height: var(--menu--altura);
     width: 100%;
     background-color:  #29bb2e;
 
@@ -119,6 +122,12 @@ figure{
     z-index: 1000;
 
     
+}
+.tamanho_cabecalho{
+    width: 100%;
+    height: var(--menu--altura);
+    /* background-color: gray; */
+    /* margin-bottom: 100px; */
 }
 
 
@@ -756,13 +765,13 @@ figure{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    /* padding-bottom: 100px; */
 }
 
-.opacity{
+.opacity-bkg{
     width: inherit;
     height: inherit;
     background-color: rgba(255, 255, 255, 0.7);
+    padding: var(--menu--altura);
 }
 .center-txt{
     text-align: center;
@@ -796,7 +805,7 @@ figure{
     width: 950px;
     min-height: 100px;
     height: auto;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
 }
 
 
@@ -900,6 +909,7 @@ figure{
     background-image: url(../img/02.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 #container_curiosidades{
@@ -917,6 +927,10 @@ figure{
     padding: 50px;
     /* background-color: gray; */
     border-top: solid 1px black;
+}
+
+.txt-white{
+    color: green;
 }
 
 .img_curiosidades{
