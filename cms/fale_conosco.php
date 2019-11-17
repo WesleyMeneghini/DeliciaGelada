@@ -1,13 +1,24 @@
 <?php
-    
-    // importar o arquivo para abrir conexao com o banco de dados
-    require_once('../bd/conexao.php');
-    
-    // funcao para abrir a conexao com o banco
-    $conexao = conexaoMysql();
-//    var_dump($conexao);
 
-    $filtro = (string) "";
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+    if(isset($_SESSION['adm_faleconosco'])){
+
+        if($_SESSION['adm_faleconosco'] == 1){
+
+        
+        // importar o arquivo para abrir conexao com o banco de dados
+        require_once('../bd/conexao.php');
+        
+        // funcao para abrir a conexao com o banco
+        $conexao = conexaoMysql();
+    //    var_dump($conexao);
+
+        $filtro = (string) "";
+
+    
 ?>
 
 
@@ -157,3 +168,10 @@
         </div>
     </body>
 </html>
+
+<?php
+        }
+    }else{
+        echo("<h1>404 :(</h1>");
+    }
+?>

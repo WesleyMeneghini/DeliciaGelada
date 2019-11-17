@@ -26,7 +26,50 @@
                         Pagina Nossas Lojas
                     </a>
                 </h1>
+
+
+
+                 <!-- Secao para editar uma pagina especifica -->
+                 <div class="paginas_editaveis">
+                    <div class="icone_imagem center">
+                        <figure>
+                            <img src="icones/home.png" class="bkg-img">
+                        </figure>
+                    </div>
+                    <p class="nome_pagina txt-center negrito">
+                        Sobre a empresa
+                    </p>
+                </div>
+                
+                <!-- Secao para editar uma pagina especifica -->
+                <div class="paginas_editaveis">
+                    <div class="icone_imagem center">
+                        <figure>
+                            <img src="icones/loja.png" class="bkg-img">
+                        </figure>
+                    </div>
+                    <p class="nome_pagina txt-center negrito">
+                        Nossas Lojas
+                    </p>
+                </div>
+                
+                <!-- Secao para editar uma pagina especifica -->
+                <div class="paginas_editaveis">
+                    <div class="icone_imagem center">
+                        <figure>
+                            <img src="icones/promocao.png" class="bkg-img">
+                        </figure>
+                    </div>
+                    <p class="nome_pagina txt-center negrito">
+                        Promoções
+                    </p>
+                </div>
             </div>
+
+
+
+
+
             <?php
                 require_once('rodape.php');
             ?>

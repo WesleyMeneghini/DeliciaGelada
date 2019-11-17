@@ -49,19 +49,19 @@
             </ul>
         </nav>
         <div id="caixa_login">
-            <form name="formulario" method="post" action="index.html">
+            <form name="formulario" method="post" action="bd/verificar_login.php">
                 <div class="login">
                     <!-- USUÁRIO -->
                     <br>
-                    <input type="text" placeholder="Digite seu login..." class="login_input" title="Nome de Usuario" required>
+                    <input type="text" name="txt_login" placeholder="Digite seu login..." class="login_input" title="Nome de Usuario" required>
                 </div>
                 <div class="login">
                     <!-- SENHA -->
                     <br>
-                    <input type="password" placeholder="Digite sua senha..." class="login_input" required>
+                    <input type="password" name="txt_password" placeholder="Digite sua senha..." class="login_input" required>
                 </div>
                 <br>
-                <input class="ok_input" type="submit" value="OK">
+                <input class="ok_input" name="btn_entrar" type="submit" value="OK">
             </form>
         </div>
         <div class="redes_sociais_menu">

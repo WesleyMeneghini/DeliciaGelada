@@ -1,3 +1,9 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -18,41 +24,10 @@
             <!-- Conteudo com os links para editar as paginas do site -->
             <section id="adm_conteudo">
                 
-                <!-- Secao para editar uma pagina especifica -->
-                <div class="paginas_editaveis">
-                    <div class="icone_imagem center">
-                        <figure>
-                            <img src="icones/home.png" class="bkg-img">
-                        </figure>
-                    </div>
-                    <p class="nome_pagina txt-center negrito">
-                        Sobre a empresa
-                    </p>
-                </div>
-                
-                <!-- Secao para editar uma pagina especifica -->
-                <div class="paginas_editaveis">
-                    <div class="icone_imagem center">
-                        <figure>
-                            <img src="icones/loja.png" class="bkg-img">
-                        </figure>
-                    </div>
-                    <p class="nome_pagina txt-center negrito">
-                        Nossas Lojas
-                    </p>
-                </div>
-                
-                <!-- Secao para editar uma pagina especifica -->
-                <div class="paginas_editaveis">
-                    <div class="icone_imagem center">
-                        <figure>
-                            <img src="icones/promocao.png" class="bkg-img">
-                        </figure>
-                    </div>
-                    <p class="nome_pagina txt-center negrito">
-                        Promoções
-                    </p>
-                </div>
+                <h1 class="txt-center">Bem Vindo ao Sistema interno da Loja Delicia Gelada</h1>
+
+                <h3 class="txt-center">Com o seu nível de acesso <span class="negrito">(<?=$_SESSION['nome_nivel']?>)</span> você pode trabalhar em nosso sistema de gerenciamento</h3>
+               
                 
             </section>
             

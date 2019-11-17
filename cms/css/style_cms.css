@@ -6,6 +6,7 @@
     font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
     --color--primary: #29bb2e;
+    --color--secondy: #eded11;
 }
 
 body{
@@ -82,6 +83,16 @@ figure{
 }
 .txt-center{
     text-align: center;
+}
+
+.is-size-1{
+    font-size: 40px;
+}
+.is-size-8{
+    font-size: 16px;
+}
+.is-size-9{
+    font-size: 12px;
 }
 .bkg-primary{
     background-color: #29bb2e;
@@ -218,16 +229,29 @@ li{
 }
 
 #identificacao{
-    width: 300px;
-    height: 120px;
+    min-width: 10px;
+    max-width: 300px;
+    width: auto;
+    min-height: 120px;
+    height: auto;
     float: right;
     padding-top: 10px;
-/*    background-color: aliceblue;*/
     margin-right: 20px;
     text-align: right;
+    /* background-color: blue; */
 }
 #logout{
-    padding-top: 70px;
+    width: 50px;
+    padding-top: 20px;
+}
+.border-black{
+    border: solid 1px black;
+}
+.float-right{
+    float: right;
+}
+.button:hover{
+    background-color: var(--color--secondy);
 }
 #adm_conteudo{
     width: inherit;
@@ -496,6 +520,10 @@ a{
     padding-bottom: 8px;
     box-sizing: content-box;
     margin-bottom: 16px;
+}
+.title-link:hover{
+    background-color: var(--color--secondy);
+    transition: 0.5s;
 }
 
 /********************************/
