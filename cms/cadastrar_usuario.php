@@ -73,10 +73,52 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
+        <script src="js/jquery.js"></script>
+        <script>
+            
+            $(document).ready(function(){
+
+                // Funcition para abrir a modal
+                $('.visualizar').click(function(){
+                    $('#container_modal').fadeIn(1000);
+                });
+                
+                $('#fechar').click(function(){
+                    $('#container_modal').fadeOut(1000);
+                });
+            
+            });
+            
+            function visualizarDados(idItem){
+
+                $.ajax({
+                    type: "POST",
+                    url: "modal_usuarios.php",
+                    data: {modo:'visualizar', codigo:idItem},
+                    success: function(dados){
+                        $('#modal_dados').html(dados);
+                    }
+                });
+            }
+        </script>
+
         <link rel="stylesheet" type="text/css" href="css/style_cms.css">
         <title>CMS - Gerenciamento</title>
     </head>
     <body>
+
+        <!-- Modal -->
+        <div id="container_modal">
+            <div id="modal">
+                
+                <div id="fechar">
+                    X
+                </div>
+                
+                <div id="modal_dados"></div>
+            </div>  
+        </div>  
+
         <section class="container_cms" class="center">
             <?php
                 require_once('cabecalho.php');
@@ -200,7 +242,26 @@
                                 value="<?=$botao?>"
                                 max-length="45"
                                 required/>
+                            
+                            <input
+                                class="button"
+                                type="button"
+                                name="btn_limpar"
+                                id="btn_limpar"
+                                value="LIMPAR"
+                                max-length="45"
+                                required/>
                         </p>
+                        
+                        <script>
+
+                            const $btnLimpar = document.getElementById("btn_limpar");
+
+                            const redirecionar = () => window.location.href = "cadastrar_usuario.php";
+
+                            $btnLimpar.addEventListener('click', () => redirecionar());
+
+                        </script>
                         
                     </form>
                 </div>
@@ -237,7 +298,21 @@
                                 </a>
                                 
                             </td>
-                            <td>Visualizar</td>
+                            <td>
+                                <div class="tbl_icone center">
+                                    <figure>
+                                        <a 
+                                            href="#"
+                                            class="visualizar"
+                                            onclick="visualizarDados(<?=$rsUsuariosNiveis['codigo']?>);">
+
+                                            <img src="icones/lupa.png" class="bkg-img">
+
+                                        </a>
+                                    </figure>
+                                </div>
+
+                            </td>
                             <td>
                                 <div class="icone_tabela center">
                                     <figure>
@@ -264,7 +339,9 @@
                             <td>
                                 <div class="icone_tabela center">
                                     <figure>
-                                        <a href="../bd/delete_usuario.php?modo=delete&codigo=<?=$rsUsuariosNiveis['codigo']?>">
+                                        <a 
+                                            onclick="return confirm('Deseja realmente excluir esse Usuário?')" 
+                                            href="../bd/delete_usuario.php?modo=delete&codigo=<?=$rsUsuariosNiveis['codigo']?>">
                                             <img src="icones/lixeira.png" class="bkg-img"/>
                                         </a>
                                     </figure>

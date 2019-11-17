@@ -30,17 +30,17 @@
             if($rsEditarNiveis = mysqli_fetch_array($select)){
                 
                 $nome = $rsEditarNiveis['nome'];
-                $AdmConteudo = $rsEditarNiveis['adm_conteudo'];
-                $AdmFaleConosco =$rsEditarNiveis['adm_faleconosco'];
-                $AdmUsuarios = $rsEditarNiveis['adm_usuarios'];
+                $admConteudo = $rsEditarNiveis['adm_conteudo'];
+                $admFaleConosco =$rsEditarNiveis['adm_faleconosco'];
+                $admUsuarios = $rsEditarNiveis['adm_usuarios'];
 
-                if($AdmConteudo == 1){
+                if($admConteudo == 1){
                     $chkAdmConteudo = "checked";
                 }
-                if($AdmFaleConosco == 1){
+                if($admFaleConosco == 1){
                     $chkAdmFaleConosco = "checked";
                 }
-                if($AdmUsuarios == 1){
+                if($admUsuarios == 1){
                     $chkAdmUsuarios = "checked";
                 }
                 $botao = "EDITAR";
@@ -152,6 +152,25 @@
                                 type="submit" 
                                 value="<?=$botao?>" 
                                 name="btn_cadastrar">
+
+                            <input
+                                class="button"
+                                type="button"
+                                name="btn_limpar"
+                                id="btn_limpar"
+                                value="LIMPAR"
+                                max-length="45"
+                                required/>
+
+                            <script>
+
+                                const $btnLimpar = document.getElementById("btn_limpar");
+
+                                const redirecionar = () => window.location.href = "cadastrar_niveis_acesso.php";
+
+                                $btnLimpar.addEventListener('click', () => redirecionar());
+
+                            </script>
                         </form>
                     </div>
                     
