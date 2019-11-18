@@ -51,12 +51,22 @@
                 ");
 
             }else{
-                echo("erro ao executar o script");
+                echo("
+                    <script>
+                        alert('Erro ao executar o script!');
+                        window.location.href = '../index.php';
+                    </script>
+                ");
             }
 
 
         }else {
-            echo("usuario invalido");
+            echo("
+                <script>
+                    alert('Usuario invalido!');
+                    window.location.href = '../index.php';
+                </script>
+            ");
         }
         
     }
