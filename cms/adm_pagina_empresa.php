@@ -43,11 +43,10 @@
 
             $titulo = $rsSelect['titulo'];
             $conteudo = $rsSelect['conteudo'];
-            $imagem = $rsSelect['imagem'];
-            $_SESSION['imagemCardEmpresa'] = $imagem;
 
             if(isset($rsSelect['imagem'])){
-                $_SESSION['foto'] = $rsSelect['imagem'];
+                $imagem = $rsSelect['imagem'];
+                $_SESSION['imagemCardEmpresa'] = $imagem;
             }
 
             if($chkEmpresa != ""){
@@ -59,6 +58,31 @@
             
 
             $botao = "EDITAR";
+        }
+    }
+
+    // If para atualizar o status 
+    if(isset($_GET['status'])){
+
+        $status = $_GET['status'];
+        $codigo = $_GET['codigo'];
+        $banco = $_GET['banco'];
+
+
+        if(strtoupper($status) == "DESATIVADO"){
+            $sql = "update ".$banco." set status=0 where codigo=".$codigo.";";
+        }elseif(strtoupper($status) == "ATIVADO"){
+            $sql = "update ".$banco." set status=1 where codigo=".$codigo.";";
+        }
+
+        if(mysqli_query($conexao, $sql)){
+            echo("
+                <script>
+                    alert('Status ".strtolower($status)." com sucesso');
+                </script>
+            ");
+        }else{
+            echo("Erro ao executar o script!");
         }
     }
 
@@ -78,6 +102,19 @@
                 require_once('cabecalho.php');
                 require_once('menu.php');
             ?>
+
+            <!-- Seta de Navegação -->
+            <div class="navegacao">
+                <figure>
+                    <a href="adm_conteudo.php">
+                        <img 
+                            src="icones/seta_esquerda.png" 
+                            class="bkg-img" 
+                            alt="seta esquerda">
+                    </a>
+                </figure>
+            </div>
+
             <div class="conteudo_cms">
                 <div class="conteudo_editar center txt-center">
 
@@ -87,7 +124,8 @@
                         name="flr_empresa" 
                         action="../bd/inserir_empresa.php" 
                         method="post" 
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data"
+                        class="formulario">
 
                         <p>
 
@@ -126,6 +164,7 @@
                             Título: 
                             <input 
                                 type="text" 
+                                class="input-txt"
                                 name="txt_titulo"
                                 value="<?=$titulo?>"> 
                         </p>
@@ -153,16 +192,34 @@
 
                         <p>
                             <input 
-                                type="submit" 
+                                type="submit"
+                                class="button salvar" 
                                 name="btn_salvar" 
                                 value="<?=$botao?>">
+                            
+                            <input 
+                                type="button"
+                                class="button"
+                                id="btn_limpar" 
+                                name="btn_limpar" 
+                                value="LIMPAR">
                         </p>
+
+                        <script>
+
+                            const $btnLimpar = document.getElementById("btn_limpar");
+
+                            const redirecionar = () => window.location.href = "adm_pagina_empresa.php";
+
+                            $btnLimpar.addEventListener('click', () => redirecionar());
+
+                        </script>
 
                     </form>
 
-                    <h4> Sobre a Empresa</h4>
+                    <h3> Sobre a Empresa</h3>
                     <table class="tbl-crud center">
-                        <tr>
+                        <tr class="bkg-primary">
                             <td class="negrito">Título</td>
                             <td class="negrito">Editar</td>
                             <td class="negrito">Ativar/Desativar</td>
@@ -191,8 +248,44 @@
                                     </div>
                                 </a>
                             </td>
-                            <td>Ativar/Desativar</td>
-                            <td>Excluir</td>
+                            <td>
+                                <div class="icone_tabela center">
+                                    <figure>
+                                        <?php
+                                            if($rsEmpresa['status'] == 1){
+                                        ?>
+                                        <a href="adm_pagina_empresa.php?status=desativado&codigo=<?=$rsEmpresa['codigo']?>&banco=tbl_empresa">
+
+                                            <img src="icones/ativado.jpg" class="bkg-img"/>
+                                        
+                                        </a>
+                                        <?php
+                                            }else{
+                                        ?>
+                                        <a href="adm_pagina_empresa.php?status=ativado&codigo=<?=$rsEmpresa['codigo']?>&banco=tbl_empresa">
+                                            <img src="icones/off.png" class="bkg-img"/>
+                                        </a>
+                                        <?php
+                                            }
+                                        ?>
+                                    </figure>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="icone_tabela center">
+                                    <figure>
+
+                                        <a 
+                                            onclick="return confirm('Deseja realmente excluir esse Registro?')" 
+                                            href="../bd/delete.php?modo=excluir&codigo=<?=$rsEmpresa['codigo']?>&tabela=tbl_empresa&pagina=adm_pagina_empresa.php">
+
+                                            <img src="icones/lixeira.png" class="bkg-img"/>
+
+                                        </a>
+
+                                    </figure>
+                                </div>
+                            </td>
                         </tr>
 
                         <?php
@@ -200,9 +293,9 @@
                         ?>
                     </table>
                     
-                    <h4> Missão, Visão e Valores</h4>
+                    <h3> Missão, Visão e Valores</h3>
                     <table class="tbl-crud center">
-                        <tr>
+                        <tr class="bkg-primary">
                             <td class="negrito">Título</td>
                             <td class="negrito">Visualizar Foto</td>
                             <td class="negrito">Editar</td>
@@ -240,8 +333,48 @@
                                     </div>
                                 </a>
                             </td>
-                            <td>Ativar/Desativar</td>
-                            <td>Excluir</td>
+
+                            <!-- Ativar / Desativar -->
+                            <td>
+                                <div class="icone_tabela center">
+                                    <figure>
+                                        <?php
+                                            if($rsEmpresaCard['status'] == 1){
+                                        ?>
+                                        <a href="adm_pagina_empresa.php?status=desativado&codigo=<?=$rsEmpresaCard['codigo']?>&banco=tbl_empresa_card">
+
+                                            <img src="icones/ativado.jpg" class="bkg-img"/>
+                                        
+                                        </a>
+                                        <?php
+                                            }else{
+                                        ?>
+                                        <a href="adm_pagina_empresa.php?status=ativado&codigo=<?=$rsEmpresaCard['codigo']?>&banco=tbl_empresa_card">
+                                            <img src="icones/off.png" class="bkg-img"/>
+                                        </a>
+                                        <?php
+                                            }
+                                        ?>
+                                    </figure>
+                                </div>
+                            </td>
+
+                            <!-- Excluir -->
+                            <td>
+                                <div class="icone_tabela center">
+                                    <figure>
+
+                                        <a 
+                                            onclick="return confirm('Deseja realmente excluir esse Registro?')" 
+                                            href="../bd/delete.php?modo=excluir&codigo=<?=$rsEmpresaCard['codigo']?>&tabela=tbl_empresa_card&pagina=adm_pagina_empresa.php&imagem=<?=$rsEmpresaCard['imagem']?>">
+
+                                            <img src="icones/lixeira.png" class="bkg-img"/>
+
+                                        </a>
+
+                                    </figure>
+                                </div>
+                            </td>
                         </tr>
 
                         <?php

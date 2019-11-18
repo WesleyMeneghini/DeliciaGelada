@@ -31,7 +31,7 @@
 
                     <?php
 
-                        $sql = "select * from tbl_empresa;";
+                        $sql = "select * from tbl_empresa where status = 1;";
                         $select = mysqli_query($conexao, $sql);
 
                         while($rsEmpresa = mysqli_fetch_array($select)){
@@ -55,7 +55,7 @@
                     <?php
                         }
 
-                        $sqlCard = "select * from tbl_empresa_card;";
+                        $sqlCard = "select * from tbl_empresa_card where status = 1;";
                         $selectCard = mysqli_query($conexao, $sqlCard);
 
                         while($rsEmpresaCard = mysqli_fetch_array($selectCard)){

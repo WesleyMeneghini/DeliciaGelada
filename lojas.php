@@ -72,7 +72,7 @@
 
                                     <?php
                                         // Select para trazer os estados das lojas cadastradas
-                                        $sql = "select distinct uf from tbl_lojas;";
+                                        $sql = "select distinct uf from tbl_lojas where status = 1;";
                                         $select = mysqli_query($conexao, $sql);
                                         while($rsEstados = mysqli_fetch_array($select)){
 
@@ -130,11 +130,11 @@
                         if(isset($_GET['slt_estados']) && $_GET['slt_estados'] !== "") {
 
                             $filtro = strtoupper($_GET['slt_estados']);
-                            $sql = "select * from tbl_lojas where uf='".$filtro."';";
+                            $sql = "select * from tbl_lojas where uf='".$filtro."' and status = 1;";
 
                         }else {
 
-                            $sql = "select * from tbl_lojas;";
+                            $sql = "select * from tbl_lojas where status = 1;";
 
                         }
 

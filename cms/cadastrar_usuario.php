@@ -298,6 +298,8 @@
                                 </a>
                                 
                             </td>
+
+                            <!-- Visualizar dados na modal -->
                             <td>
                                 <div class="tbl_icone center">
                                     <figure>
@@ -311,7 +313,6 @@
                                         </a>
                                     </figure>
                                 </div>
-
                             </td>
                             <td>
                                 <div class="icone_tabela center">

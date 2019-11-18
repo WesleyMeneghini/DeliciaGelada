@@ -41,7 +41,7 @@
                 
                 <?php 
 
-                    $sql = "select * from tbl_curiosidades";
+                    $sql = "select * from tbl_curiosidades where status = 1";
                     $select = mysqli_query($conexao, $sql);
                 
                     while($rsCuriosidades = mysqli_fetch_array($select)){

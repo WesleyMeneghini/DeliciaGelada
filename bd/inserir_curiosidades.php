@@ -60,7 +60,7 @@
                             
                             if(strtoupper($_POST['btn_salvar']) == 'INSERIR'){
                                 
-                                $sql = "insert into tbl_curiosidades(titulo, conteudo, imagem) values('".$titulo."', '".$conteudo."', '".$foto."');";
+                                $sql = "insert into tbl_curiosidades(titulo, conteudo, imagem, status) values('".$titulo."', '".$conteudo."', '".$foto."', 1);";
                                 // echo($sql);
                             }
                             if(strtoupper($_POST['btn_salvar']) == 'EDITAR'){

@@ -142,7 +142,7 @@
                                     <figure>
                                         <a 
                                         onclick="return confirm('Deseja realmente excluir esse registro?')" 
-                                        href="../bd/delete.php?modo=excluir&codigo=<?=$rsContatos['codigo']?>">
+                                        href="../bd/delete.php?modo=excluir&codigo=<?=$rsContatos['codigo']?>&tabela=tbl_faleconosco&pagina=fale_conosco.php">
                                             <img src="icones/delete.png" class="bkg-img">
                                         </a>
                                     </figure>
