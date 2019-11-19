@@ -4,14 +4,17 @@
         session_start();
     }
 
+    require_once('../modulos/define.php');
     require_once('conexao.php');
     $conexao = conexaoMysql();
+
 
     if(isset($_POST['btn_entrar'])){
 
         $login = $_POST['txt_login'];
         $senha = $_POST['txt_password'];
 
+        // senha com a hash md5()
         $senha = md5($senha);
 
         $sql = "
@@ -53,21 +56,19 @@
             }else{
                 echo("
                     <script>
-                        alert('Erro ao executar o script!');
+                        alert('".ERRO_AO_EXECUTAR_SCRIPT."');
                         window.location.href = '../index.php';
                     </script>
                 ");
             }
 
-
-        }else {
+        }else{
             echo("
                 <script>
-                    alert('Usuario invalido!');
+                    alert('".USUARIO_INVALIDO."');
                     window.location.href = '../index.php';
                 </script>
             ");
         }
-        
     }
 ?>

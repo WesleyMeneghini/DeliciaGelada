@@ -2,6 +2,8 @@
 
 <?php
 
+    require_once('../modulos/define.php');
+
     // Import do arquivo de conexao
     require_once('conexao.php');
     // chamada para function de conexao com o Mysql
@@ -23,24 +25,24 @@
         $opcao = $_POST['slt_opcao'];
         $mensagem = $_POST['txt_mensagem'];
         
-//        var_dump($data_nascimento);
-        // Converter a data do padrao brasileiro para guardar no BD, com o padrao americano
-//        echo($data_nascimento);
-        
         $sql = "insert into tbl_faleconosco (nome, telefone, celular, email, homepage, linkfacebook, profissao, sexo, opcaomensagem, mensagem)
         values ('".$nome."', '".$telefone."', '".$celular."', '".$email."', '".$homepage."', '".$linkfacebook."', '".$profissao."', '".$sexo."', '".$opcao."', '".$mensagem."');";
-        
-        // echo($sql);
         
         // Executa o script para o banco de dados [se o script der certo iremos redirecioar para a pagina de cadastro, senoa mostra mensagem de erro]
         if(mysqli_query($conexao, $sql)){
             // Redirecionar para uma determinada pagina
-            echo("<script>/*alert('Email enviado com sucesso!');*/
-                        window.location.href = '../contato.php';
-                </script>");
-            // header('location:../contato.php');
+            echo("
+                <script>/*alert('Email enviado com sucesso!');*/
+                    window.location.href = '../contato.php';
+                </script>
+            ");
         }else{
-            echo("Erro ao executar o script no banco");
+            echo("
+                <script>
+                    alert('".ERRO_AO_EXECUTAR_SCRIPT."');
+                    window.location.href = '../contato.php';
+                </script>
+            ");
         }
         
        

@@ -3,6 +3,7 @@
         session_start();
     }
 
+    require_once('../modulos/define.php');
     require_once('conexao.php');
     
     $conexao = conexaoMysql();
@@ -83,21 +84,47 @@
                                 
                             }else{
                                 echo("Erro ao executar o script no banco <br>".$sql);
+                                echo("
+                                    <script>
+                                        alert('Erro ao cadastrar curiosidade!');
+                                        window.location.href = '../cms/adm_pagina_curiosidades.php';
+                                    </script>
+                                ");
                             }
                             
                         }else{
-                            echo("Não foi possivel enviar o arquivo para o servidor!");
+                            echo("
+                                <script>
+                                    alert('".ERRO_MOVER_ARQUIVO_SERVIDOR."');
+                                    window.location.href = '../cms/adm_pagina_curiosidades.php';
+                                </script>
+                            ");
                         }
                         
                     }else{
-                        echo(" Tamanho do arquivo tem que ser menor que 2MB");
+                        echo("
+                            <script>
+                                alert('".ERRO_TAMANHO_ARQUIVO."');
+                                window.location.href = '../cms/adm_pagina_curiosidades.php';
+                            </script>
+                        ");
                     }
                     
                 }else{
-                    echo("Arquivo não permitido! Arquivos permitidos: .jpg, .png, .jpeg");
+                    echo("
+                        <script>
+                            alert('".ERRO_EXTENSAO_ARQUIVO."');
+                            window.location.href = '../cms/adm_pagina_curiosidades.php';
+                        </script>
+                    ");
                 }
             }else{
-                echo("Imagem esta com o conteudo vazio!");
+                echo("
+                    <script>
+                        alert('Imagem não selecionada!');
+                        window.location.href = '../cms/adm_pagina_curiosidades.php';
+                    </script>
+                ");
             }
         }
     }

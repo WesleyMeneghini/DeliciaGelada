@@ -4,13 +4,10 @@
         session_start();
     }
 
+    require_once('../modulos/define.php');
     require_once('conexao.php');
 
     $conexao = conexaoMysql();
-
-    if(isset($_POST['btn_limpar'])){
-        header('Location: ../cms/adm_pagina_lojas.php');
-    }
 
     if(isset($_POST['btn_salvar'])){
 
@@ -121,6 +118,7 @@
                         if(move_uploaded_file($arquivoTmp, $diretorio.$imagem)){
 
                             if($btnSalvar == "INSERIR"){
+
                                 $sql = "
                                     insert into tbl_lojas(
                                         nome, 
@@ -149,6 +147,7 @@
                                     );"
                                 ;
                             }elseif($btnSalvar == "EDITAR"){
+
                                 $sql = "
                                     update tbl_lojas set
                                         nome='".$nome."',
@@ -184,25 +183,38 @@
                                 ");
                             }else{
                                 echo("
-                                <script>
-                                    alert('Erro ao ".strtolower($_POST['btn_salvar'])." o script!');
-                                    /*window.location.href = '../cms/adm_pagina_lojas.php*/';
-                                </script>
-                            ");
+                                    <script>
+                                        alert('Erro ao ".strtolower($_POST['btn_salvar'])." o script!');
+                                        window.location.href = '../cms/adm_pagina_lojas.php';
+                                    </script>
+                                ");
                             }
 
                         }else{
-                            echo("Erro ao mover o arquivo para o servidor!");
+                            echo("
+                                <script>
+                                    alert('".ERRO_MOVER_ARQUIVO_SERVIDOR."');
+                                    window.location.href = '../cms/adm_pagina_lojas.php';
+                                </script>
+                            ");
                         }
 
                     }else{
-                        echo("Tamanho do arquivo superior a 2MB!");
+                        echo("
+                            <script>
+                                alert('".ERRO_TAMANHO_ARQUIVO."');
+                                window.location.href = '../cms/adm_pagina_lojas.php';
+                            </script>
+                        ");
                     }
                 }else{
-                    echo("Extensão do arquivo não permitida!");
+                    echo("
+                        <script>
+                            alert('".ERRO_EXTENSAO_ARQUIVO."');
+                            window.location.href = '../cms/adm_pagina_lojas.php';
+                        </script>
+                    ");
                 }
-
-                
             }
         }
     }

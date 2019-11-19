@@ -4,6 +4,7 @@
         session_start();
     }
 
+    require_once('../modulos/define.php');
     require_once('conexao.php');
 
     $conexao = conexaoMysql();
@@ -41,7 +42,7 @@
                 ");
             }else {
                 echo("Erro ao ".$_POST['btn_salvar']." na tbl_empresa!");
-                echo($sql);
+                // echo($sql);
             }
 
         }elseif(strtoupper($opcao) == 'SOBRE A EMPRESA CARD'){
@@ -66,7 +67,7 @@
                     echo("
                         Erro ao ".$_POST['btn_salvar']." os dados sem a imagem selecionada no modo editar!
                     ");
-                echo($sql);
+                // echo($sql);
                 }
 
             }else{
@@ -114,39 +115,57 @@
                                     }
                                     echo("
                                         <script>
-                                            alert('".strtolower($_POST['btn_salvar'])." com sucesso na tbl_empresa_card!');
+                                            alert('".strtolower($_POST['btn_salvar'])." com sucesso!');
                                             window.location.href = '../cms/adm_pagina_empresa.php';
                                         </script>
                                     ");
                                 }else {
                                     echo("
                                         <script>
-                                            alert('Erro ao ".strtolower($_POST['btn_salvar'])." na tbl_empresa_card!');
-                                            /*window.location.href = '../cms/adm_pagina_empresa.php*/';
+                                            alert('Erro ao ".strtolower($_POST['btn_salvar'])." na!');
+                                            window.location.href = '../cms/adm_pagina_empresa.php';
                                         </script>
                                     ");
-                                    echo($sql);
+                                    // echo($sql);
                                 }
     
                             }else {
-                                echo("Erro ao mover o arquivo para o servidor!");
+                                echo("
+                                    <script>
+                                        alert('".ERRO_MOVER_ARQUIVO_SERVIDOR."');
+                                        window.location.href = '../cms/adm_pagina_empresa.php';
+                                    </script>
+                                ");
                             }
     
                         }else {
-                            echo("Tamanho do arquivo tem que ser menor que 2MB");
+                            echo("
+                                <script>
+                                    alert('".ERRO_TAMANHO_ARQUIVO."');
+                                    window.location.href = '../cms/adm_pagina_empresa.php';
+                                </script>
+                            ");
                         }
     
                     }else{
-                        echo("Arquivo não permitido! Arquivos permitidos: .jpg, .png, .jpeg");
+                        echo("
+                            <script>
+                                alert('".ERRO_EXTENSAO_ARQUIVO."');
+                                window.location.href = '../cms/adm_pagina_empresa.php';
+                            </script>
+                        ");
                     }
     
                 }
             }
 
-            
-
         }else{
-            echo("Opção do radio nao selecionada!");
+            echo("
+                <script>
+                    alert('Opção nao selecionada!');
+                    window.location.href = '../cms/adm_pagina_empresa.php';
+                </script>
+            ");
         }
 
     }

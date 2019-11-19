@@ -22,30 +22,39 @@
 
         }elseif(strtoupper($_POST['btn_cadastrar']) == "EDITAR"){
 
-            $sql = "update tbl_niveis set
-                        nome='".$nome."',
-                        adm_conteudo=".$AdmConteudo.",
-                        adm_faleconosco=".$AdmFaleConosco.",
-                        adm_usuarios=".$AdmUsuarios."
-                        where codigo=".$codigoNivel.";";
+            $sql = "
+                update tbl_niveis set
+                    nome='".$nome."',
+                    adm_conteudo=".$AdmConteudo.",
+                    adm_faleconosco=".$AdmFaleConosco.",
+                    adm_usuarios=".$AdmUsuarios."
+                    where codigo=".$codigoNivel.";
+            ";
                         
         }
-        // echo($sql);
-        if(mysqli_query($conexao, $sql)){
-            
-            echo("<script>
-                        alert('Nível cadastrado com sucesso!');
-                        window.location.href = '../cms/cadastrar_niveis_acesso.php';
-                </script>");
-        }else{
-            echo("<script>alert('Erro ao cadastrar o nível!');</script>");
-        }
 
-        // encerar variavel de sessão
-        unset($_SESSION['codigoNiveis']);
-        
+        if(mysqli_query($conexao, $sql)){
+
+            // encerar variavel de sessão
+            if(isset($_SESSION['codigoNiveis'])){
+                unset($_SESSION['codigoNiveis']);
+            }
+            
+            echo("
+                <script>
+                    alert('Nível cadastrado com sucesso!');
+                    window.location.href = '../cms/cadastrar_niveis_acesso.php';
+                </script>
+            ");
+
+        }else{
+            echo("
+                <script>
+                    alert('Erro ao cadastrar o nível!');
+                    window.location.href = '../cms/cadastrar_niveis_acesso.php';
+                </script>
+            ");
+        }
     }
-    
-    
 
 ?>
