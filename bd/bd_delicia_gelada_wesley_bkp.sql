@@ -84,7 +84,7 @@ CREATE TABLE `tbl_empresa_card` (
   `imagem` varchar(100) NOT NULL,
   `status` tinyint(4) NOT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `tbl_empresa_card` (
 
 LOCK TABLES `tbl_empresa_card` WRITE;
 /*!40000 ALTER TABLE `tbl_empresa_card` DISABLE KEYS */;
-INSERT INTO `tbl_empresa_card` VALUES (2,'Missão','“Contribuir para um país mais forte por meio de empresas mais fortes”.','65b5522e791a9cdb137494f4d334bc56.png',1),(3,'Missão',' “Contribuir para um país mais forte por meio de empresas mais fortes”.','af1d5dd1b1300706d3accbab63d29719.png',1);
+INSERT INTO `tbl_empresa_card` VALUES (2,'Missão','“Contribuir para um país mais forte por meio de empresas mais fortes”.','65b5522e791a9cdb137494f4d334bc56.png',1),(3,'Missão',' “Contribuir para um país mais forte por meio de empresas mais fortes”.','af1d5dd1b1300706d3accbab63d29719.png',1),(11,'Valores','Teste','9a5d2adfab477531a0ba797541b6b01c.png',1);
 /*!40000 ALTER TABLE `tbl_empresa_card` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +188,7 @@ CREATE TABLE `tbl_niveis` (
 
 LOCK TABLES `tbl_niveis` WRITE;
 /*!40000 ALTER TABLE `tbl_niveis` DISABLE KEYS */;
-INSERT INTO `tbl_niveis` VALUES (1,'Administrador',1,1,1,1),(5,'Fale Conosco',0,1,0,1),(6,'Administração Usuários',0,0,1,1),(8,'Estagiário',0,0,0,1),(10,'Adm Teste',1,1,1,1);
+INSERT INTO `tbl_niveis` VALUES (1,'Administrador',1,1,1,1),(5,'Fale Conosco',0,1,0,1),(6,'Administração Usuários',0,0,1,1),(8,'Estagiário',0,0,0,0),(10,'Adm Teste',1,1,1,0);
 /*!40000 ALTER TABLE `tbl_niveis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +219,7 @@ CREATE TABLE `tbl_usuarios` (
 
 LOCK TABLES `tbl_usuarios` WRITE;
 /*!40000 ALTER TABLE `tbl_usuarios` DISABLE KEYS */;
-INSERT INTO `tbl_usuarios` VALUES (9,'WESLEY WELLINGTON MENEGHINI','wesley.meneghini@outlook.com.br','wesley.meneghini','202cb962ac59075b964b07152d234b70',1,1),(10,'TUX','tux@gmail.com','tux','202cb962ac59075b964b07152d234b70',5,1),(12,'Luciana','luciana@hotmail.com','luciana','202cb962ac59075b964b07152d234b70',8,1),(13,'Tux','tux@gmail.com.br','tux123','202cb962ac59075b964b07152d234b70',10,1);
+INSERT INTO `tbl_usuarios` VALUES (9,'Wesley Meneghini','wesley.meneghini@outlook.com.br','wesley','202cb962ac59075b964b07152d234b70',1,1),(10,'Tux','tux@gmail.com','tux','202cb962ac59075b964b07152d234b70',1,1),(12,'Luciana','luciana@hotmail.com','luciana','202cb962ac59075b964b07152d234b70',8,1);
 /*!40000 ALTER TABLE `tbl_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,4 +240,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-17 23:14:08
+-- Dump completed on 2019-11-19 11:54:09
