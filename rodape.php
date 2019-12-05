@@ -2,7 +2,7 @@
 <footer>
     <div class="conteudo center">
         <div id="container_sistema_interno">
-            <a>
+            <a href="mvc/index.php">
                 <div id="sistema_interno" class="bkg-primary">
                     Sistema Interno
                 </div>
