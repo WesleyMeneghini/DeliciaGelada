@@ -1,7 +1,7 @@
 <?php
-    if(!isset($_SESSION)){
-        session_start();
-    }
+    
+    if (!isset($_SESSION['login']) || $_SESSION['login'] == 'off') 
+        header( 'location: index.php');
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +22,15 @@
             ?>
             
             <!-- Conteudo com os links para editar as paginas do site -->
-            <section id="adm_conteudo">
+            <section id="adm_conteudo" class="txt-center">
                 
                 <h1 class="txt-center">Bem Vindo ao Sistema interno da Loja Delicia Gelada</h1>
 
                 <h3 class="txt-center">Com o seu nível de acesso você pode trabalhar em nosso sistema de gerenciamento</h3>
+
+                <input class="button" type="submit" value="categorias" name="btn_catergotia">
+                <input class="button" type="submit" value="sub-categoria" name="sub-categoria">
+                <input class="button" type="submit" value="produtos" name="btn_produtos">
                
                 
             </section>

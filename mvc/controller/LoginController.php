@@ -28,7 +28,7 @@ class LoginController{
         if($loginDAO->login($this->login)){
             echo "entrou";
             $_SESSION["login"] = "on";
-            header("location: index.php");
+            header("location: index.php?page=home");
         }else{
             echo "nao entrou";
             $_SESSION["login"] = "off";

@@ -1,0 +1,44 @@
+use db_delicia_gelada_wesley;
+
+show tables;
+
+select * from cat_sub;
+select * from categorias;
+select * from sub_categorias;
+select * from produtos;
+
+insert into categorias(nome) values('sucos naturais');
+insert into sub_categorias(nome) values('uva');
+insert into cat_sub(fk_categorias, fk_sub_categorias) values(2,3);
+insert into db_delicia_gelada_wesley.produtos(nome, descricao, preco, promocao, status, produto_mes, fk_cat_sub) VALUES( 'limao', 'tsete03', '5', '15', 1, 1, 5);
+
+
+SELECT cat_sub.id, categorias.id AS id_cat, categorias.nome, sub_categorias.id AS id_sub, sub_categorias.nome 
+FROM cat_sub
+INNER JOIN categorias
+ON cat_sub.fk_categorias = categorias.id
+INNER JOIN sub_categorias
+ON cat_sub.fk_sub_categorias = sub_categorias.id;
+
+SELECT produtos.*, categorias.nome AS nome_cat, sub_categorias.nome AS nome_sub
+FROM produtos
+INNER JOIN cat_sub
+ON produtos.fk_cat_sub = cat_sub.id
+INNER JOIN categorias
+ON cat_sub.fk_categorias = categorias.id
+INNER JOIN sub_categorias
+ON cat_sub.fk_sub_categorias = sub_categorias.id;
+
+
+
+create table produtos(
+	id int(1) auto_increment primary key not null,
+	nome varchar(45) not null,
+	descricao varchar(250),
+	preco float not null,
+	promocao int not null,
+	status bit not null,
+	produto_mes bit not null,
+	fk_cat_sub int not null,
+	foreign key (fk_cat_sub) references cat_sub(id)
+);
