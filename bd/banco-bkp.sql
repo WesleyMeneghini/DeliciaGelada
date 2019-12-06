@@ -1,15 +1,15 @@
-CREATE DATABASE  IF NOT EXISTS `db_delicia_gelada_wesley` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `db_delicia_gelada_wesley` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
 USE `db_delicia_gelada_wesley`;
--- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_delicia_gelada_wesley
 -- ------------------------------------------------------
--- Server version	8.0.17
+-- Server version	8.0.11
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+ SET NAMES utf8 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -18,12 +18,121 @@ USE `db_delicia_gelada_wesley`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cat_sub`
+--
+
+DROP TABLE IF EXISTS `cat_sub`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `cat_sub` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
+  `fk_categorias` int(1) NOT NULL,
+  `fk_sub_categorias` int(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_categorias` (`fk_categorias`),
+  KEY `fk_sub_categorias` (`fk_sub_categorias`),
+  CONSTRAINT `cat_sub_ibfk_1` FOREIGN KEY (`fk_categorias`) REFERENCES `categorias` (`id`),
+  CONSTRAINT `cat_sub_ibfk_2` FOREIGN KEY (`fk_sub_categorias`) REFERENCES `sub_categorias` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cat_sub`
+--
+
+LOCK TABLES `cat_sub` WRITE;
+/*!40000 ALTER TABLE `cat_sub` DISABLE KEYS */;
+INSERT INTO `cat_sub` VALUES (1,1,1),(2,1,2),(3,1,3),(4,2,1),(5,2,2),(6,2,3);
+/*!40000 ALTER TABLE `cat_sub` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `categorias`
+--
+
+DROP TABLE IF EXISTS `categorias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `categorias` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categorias`
+--
+
+LOCK TABLES `categorias` WRITE;
+/*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+INSERT INTO `categorias` VALUES (1,'sucos verdes'),(2,'sucos naturais'),(3,'sucos naturais');
+/*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `produtos`
+--
+
+DROP TABLE IF EXISTS `produtos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `produtos` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `descricao` varchar(250) DEFAULT NULL,
+  `preco` float NOT NULL,
+  `promocao` int(11) NOT NULL,
+  `status` bit(1) NOT NULL,
+  `produto_mes` bit(1) NOT NULL,
+  `fk_cat_sub` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cat_sub` (`fk_cat_sub`),
+  CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`fk_cat_sub`) REFERENCES `cat_sub` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produtos`
+--
+
+LOCK TABLES `produtos` WRITE;
+/*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
+INSERT INTO `produtos` VALUES (1,'laranja','jasjaghsjajsh',14,5,'','',4),(2,'limao','tsete03',5,15,'','',5);
+/*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sub_categorias`
+--
+
+DROP TABLE IF EXISTS `sub_categorias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `sub_categorias` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sub_categorias`
+--
+
+LOCK TABLES `sub_categorias` WRITE;
+/*!40000 ALTER TABLE `sub_categorias` DISABLE KEYS */;
+INSERT INTO `sub_categorias` VALUES (1,'laranja'),(2,'limao'),(3,'uva');
+/*!40000 ALTER TABLE `sub_categorias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tbl_curiosidades`
 --
 
 DROP TABLE IF EXISTS `tbl_curiosidades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_curiosidades` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
@@ -50,7 +159,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_empresa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_empresa` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
@@ -76,7 +185,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_empresa_card`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_empresa_card` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
@@ -103,7 +212,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_faleconosco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_faleconosco` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) DEFAULT NULL,
@@ -136,7 +245,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_lojas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_lojas` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
@@ -170,7 +279,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_niveis`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_niveis` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -198,7 +307,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `tbl_usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `tbl_usuarios` (
   `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -222,14 +331,6 @@ LOCK TABLES `tbl_usuarios` WRITE;
 INSERT INTO `tbl_usuarios` VALUES (9,'Wesley Meneghini','wesley.meneghini@outlook.com.br','wesley','202cb962ac59075b964b07152d234b70',1,1),(10,'Tux','tux@gmail.com','tux','202cb962ac59075b964b07152d234b70',1,1),(12,'Luciana','luciana@hotmail.com','luciana','202cb962ac59075b964b07152d234b70',8,1);
 /*!40000 ALTER TABLE `tbl_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'db_delicia_gelada_wesley'
---
-
---
--- Dumping routines for database 'db_delicia_gelada_wesley'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -240,4 +341,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-19 11:54:09
+-- Dump completed on 2019-12-06 14:04:52
