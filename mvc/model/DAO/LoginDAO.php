@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
 
 require_once "ConexaoMysql.php";
 require_once "model/Login.php";
@@ -30,6 +33,7 @@ class LoginDAO{
 
             $login->setUser($rsSelect['login']);
             $login->setPassword($rsSelect['senha']);
+            $_SESSION['nome_usuario'] = $rsSelect['nome'];
 
         }else{
             return false;

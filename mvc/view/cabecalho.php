@@ -5,7 +5,7 @@
     <div id="logo_empresa">
         <figure>
             <a href="index.php">
-                <img src="img/logo_delicia_gelada2.png" class="bkg-img">
+                <img src="view/img/logo_delicia_gelada2.png" class="bkg-img">
             </a>
         </figure>
     </div>

@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
 
 require_once "model/Login.php";
 require_once "model/DAO/LoginDAO.php";
@@ -21,12 +24,16 @@ class LoginController{
     public function login(){
 
         $loginDAO = new LoginDAO();
+
         if($loginDAO->login($this->login)){
             echo "entrou";
-            // header("location: index.php&controller=login&modo=valido");
+            $_SESSION["login"] = "on";
+            header("location: index.php");
         }else{
             echo "nao entrou";
-            // header("location: index.php?controller=login&modo=invalido");
+            $_SESSION["login"] = "off";
+
+            header("location: index.php");
         }
     }
 }
