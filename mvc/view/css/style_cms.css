@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     border: 0px;
@@ -9,37 +9,38 @@
     --color--secondy: #eded11;
 }
 
-body{
+body {
     background-image: url(../img/engrenagem.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
-h1{
+h1 {
     margin-bottom: 10px;
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
-input{
+input {
     min-width: 25px;
     width: auto;
     height: 25px;
     /* border: solid 1px black; */
     margin-bottom: 5px;
 }
-.input-txt{
+
+.input-txt {
     width: 200px;
     height: 30px;
     border-radius: 4px;
     border: solid 1px var(--color--primary);
 }
 
-.button{
+.button {
     width: auto;
     height: auto;
     padding: 4px;
@@ -47,129 +48,138 @@ input{
     border-radius: 4px;
     border: none;
     border: solid 1px var(--color--primary);
-
 }
-.select{
+
+.select {
     width: auto;
     height: auto;
     padding: 4px;
     border: solid 1px var(--color--primary);
 }
 
-.button, .select{
+.button,
+.select {
     margin-left: 8px;
 }
 
-.negrito{
+.negrito {
     font-weight: bold;
 }
 
-h2{
+h2 {
     padding-top: 50px;
     padding-left: 20px;
 }
-figure{
+
+figure {
     width: inherit;
     height: inherit;
 }
-.center{
+
+.center {
     margin-left: auto;
     margin-right: auto;
 }
-.bkg-img{
+
+.bkg-img {
     width: inherit;
     height: inherit;
     padding: 4px;
 }
-.txt-center{
+
+.txt-center {
     text-align: center;
 }
 
-.is-size-1{
+.is-size-1 {
     font-size: 40px;
 }
-.is-size-8{
+
+.is-size-8 {
     font-size: 16px;
 }
-.is-size-9{
+
+.is-size-9 {
     font-size: 12px;
 }
-.bkg-primary{
+
+.bkg-primary {
     background-color: #29bb2e;
 }
-.txt-erro{
+
+.txt-erro {
     /* height: 30px; */
     /* width: 100px; */
     color: red;
     padding-top: 18px;
 }
 
-.conteudo{
+.conteudo {
     height: inherit;
     width: 800px;
 }
 
-.bkg-red{
+.bkg-red {
     background-color: red;
 }
-.float-left{
-    float:left;
+
+.float-left {
+    float: left;
     margin-left: 4px;
     margin-right: 4px;
 }
 
-.cicle-image-view{
+.cicle-image-view {
     border-radius: 90px;
 }
 
-.foto_tabela{
+.foto_tabela {
     height: 64px;
     width: 64px;
 }
-.foto_tabela_retangular{
+
+.foto_tabela_retangular {
     height: 64px;
     width: 128px;
     border-radius: 4px;
-} 
+}
 
-.navegacao{
+.navegacao {
     width: 48px;
     height: 48px;
 }
 
-
-
-
-.container_cms{
+.container_cms {
     width: 1200px;
     min-height: 750px;
-/*    background-color: #a3ffbc;*/
+    /*    background-color: #a3ffbc;*/
     background-color: white;
     margin-left: auto;
     margin-right: auto;
-/*    margin-top: 8vh;*/
+    /*    margin-top: 8vh;*/
     border-radius: 10px;
     border: solid 1px black;
     margin-bottom: 50px;
 }
 
-#cabecalho{
+#cabecalho {
     width: inherit;
     height: 150px;
-/*    background-color: aqua;*/
+    /*    background-color: aqua;*/
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom: solid 1px black;
 }
-#titulo_cms{
+
+#titulo_cms {
     width: 700px;
     height: inherit;
-/*    background-color: saddlebrown;*/
+    /*    background-color: saddlebrown;*/
     border-top-left-radius: 10px;
     float: left;
 }
 
-#logo_empresa{
+#logo_empresa {
     width: 300px;
     height: 100px;
     margin-left: 50px;
@@ -177,32 +187,33 @@ figure{
     padding-top: 25px;
 }
 
-#menu{
+#menu {
     width: inherit;
     height: 135px;
     border-bottom: solid 1px black;
 }
-nav{
+
+nav {
     width: 550px;
     height: inherit;
-/*    background-color: aqua;*/
+    /*    background-color: aqua;*/
     padding-top: 20px;
     float: left;
-    
 }
 
-.form-crud{
+.form-crud {
     width: 400px;
     min-height: 100px;
     height: auto;
     /* background-color: seagreen; */
     margin-bottom: 48px;
 }
-.elemento-checkbox{
+
+.elemento-checkbox {
     padding: 8px;
 }
 
-.container_checkbox{
+.container_checkbox {
     width: 250px;
     min-height: 30px;
     height: auto;
@@ -211,24 +222,25 @@ nav{
     text-align: left;
 }
 
-.menu_itens{
+.menu_itens {
     width: 150px;
     height: 105px;
-/*    background-color: darkred;*/
+    /*    background-color: darkred;*/
     float: left;
     margin-left: 20px;
 }
 
-.menu_img{
+.menu_img {
     width: 80px;
     height: 80px;
     margin-bottom: 5px;
 }
-li{
+
+li {
     text-align: center;
 }
 
-#identificacao{
+#identificacao {
     min-width: 10px;
     max-width: 300px;
     width: auto;
@@ -240,78 +252,88 @@ li{
     text-align: right;
     /* background-color: blue; */
 }
-#logout{
+
+#logout {
     width: 50px;
     padding-top: 20px;
 }
-.border-black{
+
+.border-black {
     border: solid 1px black;
 }
-.float-right{
+
+.float-right {
     float: right;
 }
-.button:hover{
+
+.button:hover {
     background-color: var(--color--secondy);
 }
-#adm_conteudo{
+
+#adm_conteudo {
     width: inherit;
-    height: 500px;
+    min-height: 500px;
+    height: auto;
     padding: 20px;
     padding-top: 50px;
+    /* background-color: #29bb2e; */
 }
 
-
-.paginas_editaveis{
+.paginas_editaveis {
     width: 180px;
     min-height: 120px;
     height: auto;
-/*    background-color: aqua;*/
+    /*    background-color: aqua;*/
     margin-bottom: 20px;
     float: left;
     margin-left: 30px;
 }
 
-.icone_imagem{
+.icone_imagem {
     width: 100px;
     height: 100px;
     margin-bottom: 10px;
 }
-.nome_pagina{
+
+.nome_pagina {
     width: inherit;
     min-height: 30px;
     height: auto;
 }
 
-.paginas_editaveis:hover{
+.paginas_editaveis:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 
-.icone_tabela{
+.icone_tabela {
     width: 32px;
     height: 32px;
- 
 }
 
 
 /* Tabela do crud */
-.tbl-crud{
+
+.tbl-crud {
     width: 1100px;
     min-height: 30px;
     height: auto;
     margin-bottom: 30px;
 }
-.tbl-crud tr{
+
+.tbl-crud tr {
     height: 30px;
 }
-.tbl-crud tr td{
+
+.tbl-crud tr td {
     border-radius: 4px;
     border: solid 1px black;
-    
 }
 
 
 /*--------------------------------------*/
+
+
 /*------- Pagina ADM fale conosco-------*/
 
 
@@ -322,76 +344,82 @@ li{
     padding: 10px;
     padding-top: 50px;
 } */
-#container_filtro{
-    width: 250px ;
+
+#container_filtro {
+    width: 250px;
     height: 50px;
     padding: 8px;
-    
 }
 
-
-#tbl_fale_conosco{
+#tbl_fale_conosco {
     width: 100%;
     min-height: 40px;
     height: auto;
-/*    border: solid 1px red;*/
+    /*    border: solid 1px red;*/
 }
 
-#tbl_fale_conosco tr{
+#tbl_fale_conosco tr {
     min-height: 40px;
     height: auto;
 }
 
-#adm_fale_conosco tr td{
+#adm_fale_conosco tr td {
     border: solid 1px black;
     border-radius: 4px;
     padding: 10px;
 }
 
-.td_principal{
+.td_principal {
     font-size: 20px;
 }
-.td_nome{
+
+.td_nome {
     width: 330px;
 }
-.td_celular{
+
+.td_celular {
     width: 160px;
 }
-.td_email{
+
+.td_email {
     width: 300px;
 }
 
-.td_opcao{
+.td_opcao {
     width: 180px;
 }
 
-.td_excluir, .td_visualizar{
+.td_excluir,
+.td_visualizar {
     width: 100px;
 }
-.tbl_icone{
+
+.tbl_icone {
     height: 30px;
     width: 30px;
 }
 
-a{
+a {
     width: inherit;
     height: inherit;
 }
 
+
 /********************************/
+
+
 /********** Modal ***************/
 
-#container_modal{
+#container_modal {
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     z-index: 999;
     display: none;
-
 }
 
-#modal{
+#modal {
     width: 900px;
     min-height: 500px;
     max-height: 96vh;
@@ -404,7 +432,7 @@ a{
     overflow: hidden;
 }
 
-#fechar{
+#fechar {
     width: 25px;
     height: 25px;
     background-color: red;
@@ -413,74 +441,79 @@ a{
     border-radius: 5px;
     /* margin-right: 1px; */
 }
-#fechar:hover{
+
+#fechar:hover {
     cursor: pointer;
 }
 
-#conteudo_modal{
+#conteudo_modal {
     width: 100%;
     min-height: 80vh;
     max-height: 98vh;
     height: auto;
     padding: 16px;
-
 }
 
-#container_dados{
+#container_dados {
     width: 650px;
     height: inherit;
     padding: 25px;
     /* background-color: green; */
     margin-bottom: 25px;
-
 }
-#container_dados p{
+
+#container_dados p {
     margin-bottom: 5px;
     font-weight: bold;
 }
-#container_dados p span{
+
+#container_dados p span {
     width: 400px;
     min-height: 25px;
-    
     height: auto;
     font-size: 22px;
     background-color: #29bb2e;
 }
-.dados{
+
+.dados {
     width: 500px;
     min-height: 18px;
     height: auto;
     max-height: 150px;
     overflow: auto;
-
     /* background-color: aqua; */
     /* text-align: left; */
 }
-.imagem-250x350{
+
+.imagem-250x350 {
     height: 250px;
     width: 350px;
     padding: 16px;
     box-sizing: content-box;
 }
 
+
 /********************************/
+
+
 /********** Usuários ************/
 
-.container_usuarios{
+.container_usuarios {
     width: 1200px;
     min-height: 500px;
     height: auto;
     /* background-color: gray; */
     padding-top: 50px;
 }
-#usuarios{
+
+#usuarios {
     padding-top: 50px;
     width: 600px;
     height: 400px;
     /* background-color: sandybrown; */
 }
 
-#slt_nivel{
+#slt_nivel {
     min-width: 210px;
     width: auto;
     height: 30px;
@@ -489,8 +522,7 @@ a{
     border: solid 1px black;
 }
 
-
-#tbl_niveis{
+#tbl_niveis {
     width: 800px;
     min-height: 10px;
     height: auto;
@@ -498,14 +530,16 @@ a{
     margin-bottom: 75px;
     /* background-color: aqua; */
 }
-#tbl_niveis tr{
+
+#tbl_niveis tr {
     height: 30px;
 }
-#tbl_niveis tr td{
+
+#tbl_niveis tr td {
     border: solid 1px black;
 }
 
-.container_icones{
+.container_icones {
     height: 40px;
     width: 125px;
     /* background-color: blue; */
@@ -513,14 +547,14 @@ a{
     padding-bottom: 4px;
 }
 
-.container-links{
+.container-links {
     width: 250px;
     min-height: 30px;
     height: auto;
     /* background-color: slateblue; */
 }
 
-.title-link{
+.title-link {
     width: inherit;
     min-height: 10px;
     height: auto;
@@ -532,24 +566,27 @@ a{
     box-sizing: content-box;
     margin-bottom: 16px;
 }
-.title-link:hover{
+
+.title-link:hover {
     background-color: var(--color--secondy);
     transition: 0.5s;
 }
 
+
 /********************************/
+
+
 /****** Cadastrar Usuario ******/
 
-#container_usuario{
+#container_usuario {
     width: 1100px;
     min-height: 500px;
     height: auto;
     padding-bottom: 50px;
     /* background-color: aqua; */
-    
 }
 
-#cadastro_usuario{
+#cadastro_usuario {
     width: 900px;
     min-height: 50px;
     height: auto;
@@ -558,50 +595,55 @@ a{
     padding-top: 30px;
 }
 
-#container_consulta_usuarios{
+#container_consulta_usuarios {
     width: inherit;
     min-height: 50px;
     height: auto;
-   /* background-color: salmon; */
+    /* background-color: salmon; */
 }
 
-#consulta_usuarios{
+#consulta_usuarios {
     width: inherit;
     min-height: 0px;
     height: auto;
     margin-bottom: 75px;
 }
+
 #consulta_usuarios tr {
     height: 35px;
-    
 }
 
-#consulta_usuarios tr td{
+#consulta_usuarios tr td {
     border: solid 1px black;
     padding: 0px 4px 0px 4px;
 }
 
 
 /************************************/
+
+
 /****** Administração Conteudo ******/
 
-.conteudo_cms{
+.conteudo_cms {
     width: inherit;
     min-height: 500px;
     height: auto;
-/*    background-color: aqua;*/
+    /*    background-color: aqua;*/
     padding-top: 50px;
     padding-bottom: 50px;
 }
-.conteudo_editar{
+
+.conteudo_editar {
     width: 1100px;
     min-height: 500px;
     height: auto;
     /* background-color: darkgray; */
 }
 
+
 /* Formatação da textarea dos conteudos do site */
-.area_conteudo{
+
+.area_conteudo {
     width: 250px;
     height: 200px;
     resize: none;
@@ -609,11 +651,11 @@ a{
     border-radius: 4px;
 }
 
-.salvar{
+.salvar {
     margin-bottom: 50px;
 }
 
-.container_formulario{
+.container_formulario {
     width: 340px;
     min-height: 100px;
     height: auto;
@@ -621,29 +663,15 @@ a{
     padding: 16px;
     text-align: right;
 }
-.bkg-redonly{
+
+.bkg-redonly {
     background-color: rgb(194, 182, 182);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-footer{
+footer {
     height: 50px;
     width: inherit;
     border-top: solid 1px black;
     padding-top: 15px;
-/*    background-color: aqua;*/
+    /*    background-color: aqua;*/
 }

@@ -1,6 +1,8 @@
 <?php
 
 require_once "controller/LoginController.php";
+require_once "controller/CategoriaController.php";
+require_once "controller/SubCategoriaController.php";
 
 $controller = (string) null;
 $modo = (string) null;
@@ -17,14 +19,24 @@ switch($controller){
                 $loginController = new LoginController();
                 $loginController->login();
             break;
+        }
 
-            // case 'VALIDO':
+    break;
 
-            // break;
-
-            // case 'INVALIDO':
-                
-            // break;
+    case 'CATEGORIA':
+        switch($modo){
+            case 'NOVO':
+                $categoriaController = new CategoriaController();
+                $categoriaController->categoria();
+            break;
         }
     break;
+
+    case 'SUB_CATEGORIA':
+        switch($modo){
+            case 'NOVO':
+                $subCategoriaController = new SubCategoriaController();
+                $subCategoriaController->subCategoria();
+            break;
+        }
 }
