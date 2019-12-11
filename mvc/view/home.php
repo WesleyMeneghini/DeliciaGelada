@@ -37,14 +37,24 @@
 
                 <div class="center" id="conteudo">
                 <?php
+                    // if(isset($_GET['nav'])){
+                    //     $nav = $_GET['nav'];
+                    //     echo $nav;
+                    //     require "view/$nav/$nav.php";
+                    //     echo "tsete";
+                    // }else{
+                    //     echo "falhou";
+                    // }
+
+
                     if(isset($_POST['btn_categorias']))
                         require_once "view/categorias/categorias.php";
                     elseif(isset($_POST['btn_sub_categorias']))
-                        require_once "view/categorias/sub_categorias.php";
+                        require_once "view/sub_categorias/sub_categorias.php";
                     elseif(isset($_POST['btn_produtos']))
                         require_once "view/produtos/produtos.php";
                     elseif(isset($_POST['btn_menu']))
-                        require_once "view/menu_secundario/menu.php";
+                        require_once "view/menu_secundario/menu_secundario.php";
                 ?>
                 </div>               
             </section>

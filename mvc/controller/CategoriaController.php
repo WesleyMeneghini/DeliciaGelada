@@ -1,6 +1,6 @@
 <?php
 
-require "model/Categoria.php";
+require_once "model/Categoria.php";
 require_once "model/DAO/CategoriaDAO.php";
 
 
@@ -42,7 +42,7 @@ class CategoriaController{
         
     }
 
-    function listarCategorias(){
+    public function listarCategorias(){
         return $this->categoriaDAO->selectAllCategorias();
     }
 }

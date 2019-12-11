@@ -38,6 +38,7 @@ class CategoriaDAO{
             $listaCategoria[] = new Categoria();
 
             $listaCategoria[$i]->setName($rsSelect['nome']);
+            $listaCategoria[$i]->setId($rsSelect['id']);
         }
         return $listaCategoria;
     }

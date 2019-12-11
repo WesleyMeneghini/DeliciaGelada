@@ -39,6 +39,7 @@ class SubCategoriaDAO{
             $listaSubCategoria[] = new SubCategoria();
 
             $listaSubCategoria[$i]->setName($rsSelect['nome']);
+            $listaSubCategoria[$i]->setId($rsSelect['id']);
         }
         return $listaSubCategoria;
     }
