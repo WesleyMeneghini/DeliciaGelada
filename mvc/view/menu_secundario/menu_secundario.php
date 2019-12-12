@@ -17,7 +17,7 @@
 <div id="container_usuario" class="center">
     <div id="cadastro_usuario" class="form-crud center txt-center">
         
-        <h1>CADASTRAR CATEGORIA</h1>
+        <h1>CADASTRAR MENU SECUNDARIO</h1>
         
         <form 
             name="frm_categoria" 
