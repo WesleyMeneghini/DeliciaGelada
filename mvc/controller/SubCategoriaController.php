@@ -8,15 +8,14 @@ class SubCategoriaController{
     private $subCategoria;
     private $subCategoriaDAO;
 
-    function __construct()
-    {   
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    function __construct(){   
+        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
             
-            $this->subCategoria = new SubCategoria();
-            $this->subCategoriaDAO = new SubCategoriaDAO();
-            if(isset($_POST['txt_nome']))
-                $this->subCategoria->setName($_POST['txt_nome']);
-        }
+        $this->subCategoria = new SubCategoria();
+        $this->subCategoriaDAO = new SubCategoriaDAO();
+        if(isset($_POST['txt_nome']))
+            $this->subCategoria->setName($_POST['txt_nome']);
+        // }
 
     }
 

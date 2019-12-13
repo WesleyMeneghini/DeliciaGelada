@@ -11,11 +11,11 @@ $modo = (string) null;
 $controller = strtoupper($_GET['controller']);
 $modo = strtoupper($_GET['modo']);
 
-var_dump($_POST['slt_categoria']);
-$quantCheckebox = ($_POST['item']);
-var_dump($quantCheckebox);
+// var_dump($_POST['slt_categoria']);
+@$quantCheckebox = ($_POST['item']);
+// var_dump($quantCheckebox);
 
-echo($_POST['item'][0]);
+// echo($_POST['item'][0]);
 
 switch($controller){
 

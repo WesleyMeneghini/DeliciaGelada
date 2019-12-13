@@ -10,14 +10,16 @@ class MenuSecundarioController{
 
     function __construct(){
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $this->menuSecundario = new MenuSecundario();
             $this->menuSecundarioDAO = new MenuSecundarioDAO();
             
-            @$this->menuSecundario->setFkCategorias($_POST['slt_categoria']);
-            @$this->menuSecundario->setFkSubCategorias($_POST['item']);
-        }
+            if(isset($_POST['slt_categoria'])){
+                $this->menuSecundario->setFkCategorias($_POST['slt_categoria']);
+                $this->menuSecundario->setFkSubCategorias($_POST['item']);
+            }
+        // }
         
     }
 

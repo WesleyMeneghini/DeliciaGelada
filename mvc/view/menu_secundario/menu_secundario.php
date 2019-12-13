@@ -58,13 +58,13 @@
 
                     <?=$listaSubCategorias[$i]->getName()?>
                     
-                </input>
+                
             <?php
                 }
             ?>
 
             <br>
-            <input class="button" type="submit" value="Salvar"></input>
+            <input class="button" type="submit" value="Salvar">
 
         </form>
     </div>
@@ -81,7 +81,7 @@
                 for($i = 0 ; $i < count($listarMenuSecundario); $i++){
             ?>
             <tr>
-                <td class=""><?=$listarMenuSecundario[$i]->getNomeCat()?></td>
+                <td class="nomeCategoria"><?=$listarMenuSecundario[$i]->getNomeCat()?></td>
                 <td class=""><?=$listarMenuSecundario[$i]->getNomeSub()?></td>
                 <td class="">Editar</td>
                 <td class="">Ativar/Desativar</td>

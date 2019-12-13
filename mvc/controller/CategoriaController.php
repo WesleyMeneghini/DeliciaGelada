@@ -11,14 +11,14 @@ class CategoriaController{
 
     function __construct()
     {
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        // if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $this->nome = new Categoria();
             $this->categoriaDAO = new CategoriaDAO();
 
             if(isset($_POST['txt_nome']))
                 $this->nome->setName($_POST['txt_nome']);
-        }
+        // }
     }
 
     public function categoria(){
@@ -27,7 +27,7 @@ class CategoriaController{
             echo "
                 <script>
                     alert('Cadastro com sucesso!');
-                    window.location.href = 'index.php?page=home';
+                    window.location.href = 'index.php?page=home&nav=categorias';
                 </script>
             ";
         }else{
